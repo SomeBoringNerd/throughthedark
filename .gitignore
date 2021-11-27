@@ -1,0 +1,11 @@
+
+Library/Artifacts/*
+Library/PackageCache/*
+Library/ScriptAssemblies/*
+Library/ShaderCache/*
+*.log
+Temp/*
+Library/StateCache/*
+*.cache
+Logs/*
+.vs/*
