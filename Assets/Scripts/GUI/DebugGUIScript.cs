@@ -7,9 +7,12 @@ public class DebugGUIScript : MonoBehaviour
 
     public GameObject DebugGUI;
 
+    public GameObject TextDialogue;
+
     void Start()
     {
         DebugGUI.SetActive(false);
+        TextDialogue.SetActive(false);
     }
 
     // Update is called once per frame

@@ -9,3 +9,4 @@ Library/StateCache/*
 *.cache
 Logs/*
 .vs/*
+Library/PackageManager/ProjectCache
