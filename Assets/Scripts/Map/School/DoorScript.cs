@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class DoorScript : MonoBehaviour
 {
     // 0 = from inside the classroom || 1 = from outside
-    public Transform[] OpenRotation;
+    public Transform OpenRotation;
     public Transform ClosedTransform;
 
     // explicit
@@ -45,20 +45,11 @@ public class DoorScript : MonoBehaviour
             {   // open or close the door depending of it's state
                 if (!DoorIsOpen) 
                 {
-                    DoorIsOpen = true; 
-                    // code to make the door swing both way depending of the player's position using the trigger system. 
-                    // Check DeterminePlayersPositionInSchoolScript for more context
-                    switch (PlayerPosScript.POSSIBLE_POSITION_OF_A_PLAYER)
-                    {
-                        case POSSIBLE_POSITION_OF_A_PLAYER.IN_A_CLASSROOM:
-                            DOOR_OPENED_STATE = DOOR_OPENED_STATE.INSIDE;
-                            DoorObject.transform.rotation = OpenRotation[0].rotation;
-                            break;
-                        default:
-                            DOOR_OPENED_STATE = DOOR_OPENED_STATE.OUTSIDE;
-                            DoorObject.transform.rotation = OpenRotation[1].rotation;
-                            break;
-                    }
+                    DoorIsOpen = true;
+
+                    DOOR_OPENED_STATE = DOOR_OPENED_STATE.OPEN;
+                    DoorObject.transform.rotation = OpenRotation.rotation;
+
                 }
                 else
                 {   // close door
@@ -77,7 +68,6 @@ public class DoorScript : MonoBehaviour
 
 public enum DOOR_OPENED_STATE
 {
-    OUTSIDE,
-    INSIDE,
+    OPEN,
     CLOSED
 }

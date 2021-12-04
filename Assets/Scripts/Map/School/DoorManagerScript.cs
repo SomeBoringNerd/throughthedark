@@ -10,8 +10,13 @@ public class DoorManagerScript : MonoBehaviour
     public bool OneOfTheDoorsIsInRangeOfThePlayer;
 
     void Start()
-    {   // get every doorScript in the scene
+    {   // get every doorScript in the scene to enable them
         AllTheDoors = FindObjectsOfType<DoorScript>();
+
+        foreach (DoorScript door in AllTheDoors)
+        {
+            door.gameObject.SetActive(true);
+        }
     }
 
     void Update()
