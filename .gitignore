@@ -10,3 +10,4 @@ Library/StateCache/*
 Logs/*
 .vs/*
 Library/PackageManager/ProjectCache
+Library/PlayerDataCache/

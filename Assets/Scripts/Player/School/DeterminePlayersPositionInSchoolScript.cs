@@ -41,5 +41,6 @@ public class DeterminePlayersPositionInSchoolScript : MonoBehaviour
 public enum POSSIBLE_POSITION_OF_A_PLAYER
 {
     IN_THE_SCHOOL,
-    IN_A_CLASSROOM
+    IN_A_CLASSROOM,
+    IN_HER_ROOM
 }
