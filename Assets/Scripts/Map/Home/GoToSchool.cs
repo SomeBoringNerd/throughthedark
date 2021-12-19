@@ -27,29 +27,6 @@ public class GoToSchool : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Vector3.Distance(Door.transform.position, Player.transform.position) < 3.5)
-        {
-            text.text = GUI_GET_OUT.activeSelf ? "Press E to travel where you want (q to quit)" : "Press E to go out";
-            if (Input.GetKeyDown(KeyCode.E)){
-                GUI_GET_OUT.SetActive(true);
-                playerMovement.canMove = false;
-                playerCamera.canCameraMove = false;
-            }
-            if (Input.GetKeyDown(KeyCode.Q) && GUI_GET_OUT.activeSelf)
-            {
-                GUI_GET_OUT.SetActive(false);
-                playerMovement.canMove = true;
-                playerCamera.canCameraMove = true;
-            }
-
-        }
-        else
-        {
-            text.text = string.Empty;
-        }
-
-
-
 
         if (GUI_GET_OUT.activeSelf)
         {
@@ -57,6 +34,27 @@ public class GoToSchool : MonoBehaviour
             {
                 SceneManager.LoadScene("LoadingScene");
             }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                GUI_GET_OUT.SetActive(false);
+                playerMovement.canMove = true;
+                playerCamera.canCameraMove = true;
+            }
+        }
+
+        if (Vector3.Distance(Door.transform.position, Player.transform.position) < 3.5)
+        {
+            text.text = GUI_GET_OUT.activeSelf ? "Press E to travel where you want (q to quit)" : "Press E to go out";
+            if (Input.GetKeyDown(KeyCode.E)){
+                GUI_GET_OUT.SetActive(true);
+                playerMovement.canMove = false;
+                playerCamera.canCameraMove = false;
+            }
+        }
+        else
+        {
+            text.text = string.Empty;
         }
     }
 }

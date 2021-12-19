@@ -11,3 +11,7 @@ Logs/*
 .vs/*
 Library/PackageManager/ProjectCache
 Library/PlayerDataCache/
+Library/ArtifactDB
+Library/ArtifactDB-lock
+Library/SourceAssetDB
+Library/SourceAssetDB-lock

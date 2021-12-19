@@ -43,6 +43,12 @@ public class PlayerAiming : MonoBehaviour
 
 	private void Update()
     {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.F5))
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+#endif
         if (canCameraMove)
         {
             // Fix pausing
