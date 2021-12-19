@@ -39,6 +39,8 @@ public class PlayerAiming : MonoBehaviour
 		// Lock the mouse
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
+
+        Application.targetFrameRate = 60;
 	}
 
 	private void Update()

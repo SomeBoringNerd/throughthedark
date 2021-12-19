@@ -1,25 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LoadingScript : MonoBehaviour
 {
 
-    bool canLoad = true;
+    public Text loadingText;
 
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadSceneAsync("SchoolScene");
+        // let's hope that it work well.
+        //Time.timeScale = .001f;
+        StartCoroutine(SchoolScene());
+
     }
 
-    void Update()
+    IEnumerator SchoolScene()
     {
-        if (Input.GetKeyDown(KeyCode.E) && canLoad)
+        AsyncOperation operation = SceneManager.LoadSceneAsync("SchoolScene");
+
+        while (!operation.isDone)
         {
-            SceneManager.LoadSceneAsync("SchoolScene");
-            canLoad = false;
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+
+            loadingText.text = "Scene is " + progress + "% loaded";
         }
+
+        yield return null;
     }
 }
+

@@ -7,4 +7,4 @@ https://discord.gg/gtfJY7uKCN
 https://github.com/SomeBoringNerd/throughthedark/releases/latest
 
 ## About the game : 
-Through the Dark is a game where you play as Diana, a 21 year old girl who lives in a town where people have mysteriously disappeared. The local law enforcement refuses to take this case, so this young woman will take matters into her own hands and shine a light on this disappearances.
+Through the Dark is a game where you play as Diana, a 21 year old girl who lives in a town where people have mysteriously disappeared. The local law enforcement refuses to take those case, so the young woman will take matters into her own hands and bring the light upon those disappearances.

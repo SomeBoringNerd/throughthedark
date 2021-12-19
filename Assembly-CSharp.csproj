@@ -66,6 +66,7 @@
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\TraceUtil\Trace.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\SurfPhysics.cs" />
      <Compile Include="Assets\Scripts\Map\School\DoorManagerScript.cs" />
+     <Compile Include="Assets\Scripts\Ambiant\RainAndThunder.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Ladder.cs" />
      <Compile Include="Assets\Scripts\Map\School\TriggerScript.cs" />
      <Compile Include="Assets\Scripts\GUI\DebugGUIScript.cs" />
