@@ -58,21 +58,23 @@
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\ISurfControllable.cs" />
      <Compile Include="Assets\Scripts\Map\Home\GoToSchool.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\MovementConfig.cs" />
+     <Compile Include="Assets\Scripts\GUI\Disclaimer.cs" />
      <Compile Include="Assets\Scripts\NPC\Student.cs" />
      <Compile Include="Assets\Scripts\Map\LoadingScene\LoadingScript.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Extensions\IntExtensions.cs" />
-     <Compile Include="Assets\Scripts\MainMenuScript.cs" />
      <Compile Include="Assets\Scripts\Map\School\DoorScript.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\TraceUtil\Trace.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\SurfPhysics.cs" />
      <Compile Include="Assets\Scripts\Map\School\DoorManagerScript.cs" />
      <Compile Include="Assets\Scripts\Ambiant\RainAndThunder.cs" />
+     <Compile Include="Assets\Scripts\GUI\LoadOrNewGame.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Ladder.cs" />
      <Compile Include="Assets\Scripts\Map\School\TriggerScript.cs" />
      <Compile Include="Assets\Scripts\GUI\DebugGUIScript.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Water.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\InputButtons.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\GUI\MainMenuScript.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\CameraWaterCheck.cs" />
      <Compile Include="Assets\Scripts\Player\School\DeterminePlayersPositionInSchoolScript.cs" />
  <Reference Include="UnityEngine">
@@ -295,7 +297,7 @@
  <HintPath>/home/corentyn/Unity/Hub/Editor/2020.3.14f1/Editor/Data/Managed/UnityEngine/UnityEditor.UnityConnectModule.dll</HintPath>
  </Reference>
  <Reference Include="Newtonsoft.Json">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>/home/corentyn/Unity/Hub/Editor/2020.3.14f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -643,61 +645,61 @@
  <HintPath>/home/corentyn/Unity/Hub/Editor/2020.3.14f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VSCode.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.VisualStudio.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Sysroot.Linux_x86_64">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProBuilder.AddOns.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProBuilder">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Toolchain.Linux-x86_64">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Toolchain.Linux-x86_64.dll</HintPath>
  </Reference>
  <Reference Include="Unity.ProBuilder.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.ProBuilder.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Rider.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="Unity.PlasticSCM.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.PlasticSCM.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.SysrootPackage.Editor">
- <HintPath>/home/corentyn/Documents/GitHub/troughthedark/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
+ <HintPath>/mnt/714a7cc9-a7ca-493b-be6c-6dc58b663e60/GitHub/troughthedark/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
