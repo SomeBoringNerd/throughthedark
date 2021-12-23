@@ -14,13 +14,14 @@ public class LoadingScript : MonoBehaviour
     {
         // let's hope that it work well.
         //Time.timeScale = .001f;
-        StartCoroutine(SchoolScene());
+        SceneManager.LoadSceneAsync("SchoolScene");
 
     }
 
+    // it fucking don't work. Shit.
     IEnumerator SchoolScene()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync("SchoolScene");
+        AsyncOperation operation = null;
 
         while (!operation.isDone)
         {
