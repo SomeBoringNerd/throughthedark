@@ -16,11 +16,14 @@ public class GoToSchool : MonoBehaviour
 
     public SurfCharacter playerMovement;
 
+    public InteractableScript interactable;
+
     public PlayerAiming playerCamera;
 
     void Start()
     {
         text.text = string.Empty;
+        Application.targetFrameRate = 60;
         GUI_GET_OUT.SetActive(false);
     }
 
@@ -43,9 +46,9 @@ public class GoToSchool : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(Door.transform.position, Player.transform.position) < 3.5)
+        if (interactable.isUsable)
         {
-            text.text = GUI_GET_OUT.activeSelf ? "Press E to travel where you want (q to quit)" : "Press E to go out";
+            interactable.InteractableText[0].text = "Press E to go out";
             if (Input.GetKeyDown(KeyCode.E)){
                 GUI_GET_OUT.SetActive(true);
                 playerMovement.canMove = false;
@@ -54,7 +57,7 @@ public class GoToSchool : MonoBehaviour
         }
         else
         {
-            text.text = string.Empty;
+            interactable.InteractableText[0].text = string.Empty;
         }
     }
 }

@@ -40,11 +40,14 @@ public class PlayerAiming : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
 
-        Application.targetFrameRate = 60;
+
 	}
 
 	private void Update()
     {
+
+        Application.targetFrameRate = 60;
+
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F5))
         {
