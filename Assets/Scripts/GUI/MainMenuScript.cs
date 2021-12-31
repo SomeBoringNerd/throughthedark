@@ -15,7 +15,7 @@ public class MainMenuScript : MonoBehaviour
     void Start()
     {
         Title.text = "version-" + type + "-" + version;
-
+        Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)
         {
             PlayerPrefs.SetInt("Version", version);

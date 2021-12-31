@@ -10,6 +10,11 @@ public class WindowsScript : MonoBehaviour
     public DOOR_OPENED_STATE WINDOWS_STATE;
     public GameObject[] Windows;
 
+    public void Start()
+    {
+        Windows[1].SetActive(false);
+    }
+
     void Update()
     {
         if(interaction.isUsable)
