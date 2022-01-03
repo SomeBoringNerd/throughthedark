@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 3627411141340630807}
   - component: {fileID: 7828814187101013644}
   - component: {fileID: 3554528108380292849}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 1316113008590149382}
   - component: {fileID: 4178033278386121504}
   - component: {fileID: 7284289158242399398}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OpenDoor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056836381773822321}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 27.4}
+  m_LocalPosition: {x: 0, y: 0, z: 19.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 5703958499866688366}
   - component: {fileID: 2602130605069289052}
   - component: {fileID: 3292257042213861445}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 2950514586961215951}
   - component: {fileID: 7902884774191856479}
   - component: {fileID: 607828896030648594}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +818,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3874144895494885810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 6.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1021,7 +1021,7 @@ GameObject:
   - component: {fileID: 7220150387951200132}
   - component: {fileID: 7965142020776906213}
   - component: {fileID: 16859693556216969}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1036,7 +1036,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4173066473436267830}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 26.1}
+  m_LocalPosition: {x: 0, y: 0, z: 17.8}
   m_LocalScale: {x: 159.22308, y: 48, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 2336797651995492228}
   - component: {fileID: 3677002107224346221}
   - component: {fileID: 1734643174110013471}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: OpenDoor (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1287,7 +1287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.226, y: 2.245}
+  m_AnchoredPosition: {x: -0.226, y: 1.615}
   m_SizeDelta: {x: 1755, y: 987}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2336797651995492228
@@ -1543,7 +1543,7 @@ GameObject:
   - component: {fileID: 6960694708154248179}
   - component: {fileID: 4356186140082957472}
   - component: {fileID: 8501471479525625915}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Open
   m_TagString: Untagged
   m_Icon: {fileID: 0}
