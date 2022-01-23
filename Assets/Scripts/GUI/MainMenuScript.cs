@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuScript : MonoBehaviour
@@ -11,9 +12,13 @@ public class MainMenuScript : MonoBehaviour
 
     int version = 1;
     string type = "prototype";
+
+    public GameObject warningObject;
+    
     // Start is called before the first frame update
     void Start()
     {
+        warningObject.SetActive(false);
         Title.text = "version-" + type + "-" + version;
         Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)
@@ -22,9 +27,19 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.F5)) { 
+            PlayerPrefs.DeleteAll();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+#endif
+    }
+
     void DisplayWarning()
     {
-
+        warningObject.SetActive(true);
     }
 
     public void quit()

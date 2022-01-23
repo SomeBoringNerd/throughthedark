@@ -20,7 +20,7 @@ public class LoadOrNewGame : MonoBehaviour
             int i = 1;
             foreach(Button button in Profiles_Parent)
             {
-                if (!GameGlobal.getBool(i))
+                if (!GameGlobal.wasProfileLoaded(i))
                 {
                     button.interactable = false;
                 }
@@ -45,6 +45,11 @@ public class LoadOrNewGame : MonoBehaviour
         if (SUB_TYPE == SUB_TYPE.NEW)
         {
             GameGlobal.EraseData(profile);
+
+            for(int i = 0; i != 51; i++)
+            {
+                GameGlobal.setPage(i, "");
+            }
         }
 
         PlayerPrefs.SetInt("profile_" + profile + "was_loaded_once", 1);

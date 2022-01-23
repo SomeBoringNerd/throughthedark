@@ -16,3 +16,5 @@ Library/ArtifactDB-lock
 Library/SourceAssetDB
 Library/SourceAssetDB-lock
 Library/Bee/
+.idea/
+.vscode/
