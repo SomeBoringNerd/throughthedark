@@ -4,6 +4,9 @@
 https://discord.gg/gtfJY7uKCN
 
 ## download the game :
+https://someboringnerd.itch.io/through-the-dark
+
+## technical changes about the most recent build :
 https://github.com/SomeBoringNerd/throughthedark/releases/latest
 
 ## About the game : 
