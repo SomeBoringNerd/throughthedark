@@ -182,7 +182,6 @@ public class Student : MonoBehaviour
                 interactionParent.SetActive(true);
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
-                isRoutineAlreadyRunning = false;
             }
             else
             {
@@ -191,8 +190,10 @@ public class Student : MonoBehaviour
                 playerMovement.canMove = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
-                leaveForNow = false;
             }
+            // no matter the outcome, we want those two variable to be reset for the next interaction
+            leaveForNow = false;
+            isRoutineAlreadyRunning = false;
         }
     }
     
