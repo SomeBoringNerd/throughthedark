@@ -6,18 +6,7 @@ using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
-/*
- *  student :
- *      -> don't move
- * 
- *      -> have 4 interactions possible for now
- *          -> Greating
- *          -> Give infos
- *          -> Flirt
- *        1  -> Say bye
- *
- *      ->
- */
+ 
 public class Student : MonoBehaviour
 {
     [Header("Main infos")]
@@ -27,12 +16,19 @@ public class Student : MonoBehaviour
 
     [Header("Text lines")]
     public string[] RegularLines;
+    public string[] RegularLines_Speaker;
     public string[] GreatingDialogue;
+    public string[] GreatingDialogue_Speaker;
+    
     [Tooltip("if student can't have romance with player, leave blank")]
     public string[] FlirtDialogue;
-
+    public string[] FlirtDialogue_Speaker;
+    
     public string[] InfoDialogue;
+    public string[] InfoDialogue_Speaker;
+    
     public string[] ByeDialogue;
+    public string[] ByeDialogue_Speaker;
 
     [Header("GUI stuff")] 
     public GameObject parentGUI;
@@ -111,33 +107,32 @@ public class Student : MonoBehaviour
         if (!isRoutineAlreadyRunning)
         {
             dialogBox.text = String.Empty;
-            Debug.Log("test 1");
             isRoutineAlreadyRunning = true;
-            // speakerName.text = speaker_name;
+            
             switch (type)
             {
                 case INTERACTION_TYPE.GREATING:
-                    Debug.Log("test 2");
+                    int i = 0;
                     foreach (string dialog_line in GreatingDialogue)
                     {
-                        Debug.Log("test 3");
+                        speakerName.text = GreatingDialogue_Speaker[i];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
                             yield return new WaitForSeconds(0.04f);
-                            // Debug.Log(letter);
                             dialogBox.text += letter;
                         }
                         Debug.Log("test 4");
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
+                        i++;
                     }
                     break;
                 case INTERACTION_TYPE.INFORMATION:
-                    Debug.Log("test 2");
+                    int i = 0;
                     foreach (string dialog_line in InfoDialogue)
                     {
-                        Debug.Log("test 3");
+                        speakerName.text = InfoDialogue_Speaker[i];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
@@ -145,41 +140,36 @@ public class Student : MonoBehaviour
                             // Debug.Log(letter);
                             dialogBox.text += letter;
                         }
-                        Debug.Log("test 4");
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
                     }
                     break;
                 case INTERACTION_TYPE.FLIRT:
-                    Debug.Log("test 2");
+                    int i = 0;
                     foreach (string dialog_line in FlirtDialogue)
                     {
-                        Debug.Log("test 3");
+                        speakerName.text = FlirtDialogue_Speaker[i];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
                             yield return new WaitForSeconds(0.04f);
-                            // Debug.Log(letter);
                             dialogBox.text += letter;
                         }
-                        Debug.Log("test 4");
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
                     }
                     break;
                 case INTERACTION_TYPE.SAY_GOOD_BYE:
-                    Debug.Log("test 2");
+                    int i = 0;
                     foreach (string dialog_line in ByeDialogue)
                     {
-                        Debug.Log("test 3");
+                        speakerName.text = ByeDialogue_Speaker[i];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
                             yield return new WaitForSeconds(0.04f);
-                            // Debug.Log(letter);
                             dialogBox.text += letter;
                         }
-                        Debug.Log("test 4");
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
                         leaveForNow = true;
@@ -205,7 +195,8 @@ public class Student : MonoBehaviour
             }
         }
     }
-
+    
+    // why the fuck i can't use enum in a button OnClick event ?!
     public void GreatingDialogueInit(int state)
     {
         Debug.Log("routine :" + isRoutineAlreadyRunning);
@@ -243,17 +234,17 @@ public enum INTERACTION_TYPE
     SAY_GOOD_BYE
 }
 public enum GENDER
-{
+{// if you know, you know
+    NAJIMI,
     MALE,
-    FEMALE,
-    UNDEFINED
+    FEMALE
 }
 
 public enum PERSONALITY
 {
+    NONE,
     ONEE,
     LONER,
     BULLY,
-    TEACHER,
-    UNDEFINED
+    TEACHER
 }
