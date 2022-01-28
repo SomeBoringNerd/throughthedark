@@ -129,10 +129,10 @@ public class Student : MonoBehaviour
                     }
                     break;
                 case INTERACTION_TYPE.INFORMATION:
-                    int i = 0;
+                    int j = 0;
                     foreach (string dialog_line in InfoDialogue)
                     {
-                        speakerName.text = InfoDialogue_Speaker[i];
+                        speakerName.text = InfoDialogue_Speaker[j];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
@@ -142,13 +142,14 @@ public class Student : MonoBehaviour
                         }
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
+                        j++;
                     }
                     break;
                 case INTERACTION_TYPE.FLIRT:
-                    int i = 0;
+                    int k = 0;
                     foreach (string dialog_line in FlirtDialogue)
                     {
-                        speakerName.text = FlirtDialogue_Speaker[i];
+                        speakerName.text = FlirtDialogue_Speaker[k];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
@@ -157,13 +158,14 @@ public class Student : MonoBehaviour
                         }
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
+                        k++;
                     }
                     break;
                 case INTERACTION_TYPE.SAY_GOOD_BYE:
-                    int i = 0;
+                    int l = 0;
                     foreach (string dialog_line in ByeDialogue)
                     {
-                        speakerName.text = ByeDialogue_Speaker[i];
+                        speakerName.text = ByeDialogue_Speaker[l];
                         char[] letters2 = dialog_line.ToCharArray();
                         foreach (char letter in letters2)
                         {
@@ -172,6 +174,7 @@ public class Student : MonoBehaviour
                         }
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
                         dialogBox.text = String.Empty;
+                        l++;
                         leaveForNow = true;
                     }
 
@@ -191,6 +194,7 @@ public class Student : MonoBehaviour
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
+            speakerName.text = Student_Name;
             // no matter the outcome, we want those two variable to be reset for the next interaction
             leaveForNow = false;
             isRoutineAlreadyRunning = false;

@@ -18,7 +18,6 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        warningObject.SetActive(false);
         Title.text = "version-" + type + "-" + version;
         Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)

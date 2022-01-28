@@ -45,6 +45,7 @@
      <Compile Include="Assets\Scripts\commands\commandBase.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\TraceUtil\Tracer.cs" />
      <Compile Include="Assets\Scripts\Map\InteractableScript.cs" />
+     <Compile Include="Assets\Scripts\ReputationMecanic.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\PlayerAiming.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\MoveData.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\SurfController.cs" />
@@ -74,7 +75,6 @@
      <Compile Include="Assets\Scripts\GUI\MainMenuScript.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\CameraWaterCheck.cs" />
      <Compile Include="Assets\Scripts\Player\School\DeterminePlayersPositionInSchoolScript.cs" />
-     <Compile Include="Assets\Scripts\ReputationMecanic.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
