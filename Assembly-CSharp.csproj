@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\GameData\GameGlobal.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\SurfCharacter.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\ISurfControllable.cs" />
+     <Compile Include="Assets\Scripts\GUI\DisableOnStart.cs" />
      <Compile Include="Assets\Scripts\Map\Home\GoToSchool.cs" />
      <Compile Include="Assets\Addon_assets\UnitySourceMovement-master\Modified fragsurf\Movement\MovementConfig.cs" />
      <Compile Include="Assets\Scripts\GUI\Disclaimer.cs" />

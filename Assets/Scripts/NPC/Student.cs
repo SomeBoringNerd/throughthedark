@@ -31,7 +31,7 @@ public class Student : MonoBehaviour
     public string[] ByeDialogue_Speaker;
 
     [Header("GUI stuff")] 
-    public GameObject parentGUI;
+    public GameObject parentGUI, PressEToContinue;
     public Text dialogBox, speakerName;
     
     [Header("Other variables")]
@@ -52,6 +52,75 @@ public class Student : MonoBehaviour
 
     private void Start()
     {
+        // if i forget to add those variables, the script break.
+        if (ByeDialogue_Speaker.Length == 0)
+        {
+            ByeDialogue_Speaker = new string[]
+            {
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+            };
+        }
+        if (GreatingDialogue_Speaker.Length == 0)
+        {
+            GreatingDialogue_Speaker = new string[]
+            {
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+            };
+        }
+        if (FlirtDialogue_Speaker.Length == 0)
+        {
+            FlirtDialogue_Speaker = new string[]
+            {
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+            };
+        }
+        if (InfoDialogue_Speaker.Length == 0)
+        {
+            InfoDialogue_Speaker = new string[]
+            {
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+            };
+        }
+        if (RegularLines_Speaker.Length == 0)
+        {
+            RegularLines_Speaker = new string[]
+            {
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+                "PLACEHOLDER",
+            };
+        }
+
+        if (Student_Name == "")
+        {
+            Student_Name = "PLACEHOLDER";
+        }
+        
+        PressEToContinue.SetActive(false);
+        
         leaveForNow = false;
         parentGUI.SetActive(false);
         interactionParent.SetActive(false);
@@ -83,6 +152,7 @@ public class Student : MonoBehaviour
     {
         if (!isRoutineAlreadyRunning)
         {
+            PressEToContinue.SetActive(false);
             isRoutineAlreadyRunning = true;
             speakerName.text = speaker_name;
             char[] letters = text.ToCharArray();
@@ -103,7 +173,7 @@ public class Student : MonoBehaviour
     // same thing, but for interactions
     IEnumerator sayDialogue(INTERACTION_TYPE type)
     {
-        Debug.Log("routine :" + isRoutineAlreadyRunning);
+        //Debug.Log("routine :" + isRoutineAlreadyRunning);
         if (!isRoutineAlreadyRunning)
         {
             dialogBox.text = String.Empty;
@@ -122,8 +192,9 @@ public class Student : MonoBehaviour
                             yield return new WaitForSeconds(0.04f);
                             dialogBox.text += letter;
                         }
-                        Debug.Log("test 4");
+                        PressEToContinue.SetActive(true);
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                        PressEToContinue.SetActive(false);
                         dialogBox.text = String.Empty;
                         i++;
                     }
@@ -140,7 +211,9 @@ public class Student : MonoBehaviour
                             // Debug.Log(letter);
                             dialogBox.text += letter;
                         }
+                        PressEToContinue.SetActive(true);
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                        PressEToContinue.SetActive(false);
                         dialogBox.text = String.Empty;
                         j++;
                     }
@@ -156,7 +229,9 @@ public class Student : MonoBehaviour
                             yield return new WaitForSeconds(0.04f);
                             dialogBox.text += letter;
                         }
+                        PressEToContinue.SetActive(true);
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                        PressEToContinue.SetActive(false);
                         dialogBox.text = String.Empty;
                         k++;
                     }
@@ -172,7 +247,9 @@ public class Student : MonoBehaviour
                             yield return new WaitForSeconds(0.04f);
                             dialogBox.text += letter;
                         }
+                        PressEToContinue.SetActive(true);
                         yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                        PressEToContinue.SetActive(false);
                         dialogBox.text = String.Empty;
                         l++;
                         leaveForNow = true;
@@ -188,16 +265,19 @@ public class Student : MonoBehaviour
             }
             else
             {
+                
                 parentGUI.SetActive(false);
+                interactionParent.SetActive(false);
                 playerReference.canCameraMove = true;
                 playerMovement.canMove = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
-            speakerName.text = Student_Name;
             // no matter the outcome, we want those two variable to be reset for the next interaction
             leaveForNow = false;
             isRoutineAlreadyRunning = false;
+            PressEToContinue.SetActive(false);
+            speakerName.text = Student_Name;
         }
     }
     
@@ -207,7 +287,7 @@ public class Student : MonoBehaviour
         Debug.Log("routine :" + isRoutineAlreadyRunning);
         if(!isRoutineAlreadyRunning){
             interactionParent.SetActive(false);
-            Debug.Log("launching routine");
+            //Debug.Log("launching routine");
             switch (state)
             {
                 case 0:
