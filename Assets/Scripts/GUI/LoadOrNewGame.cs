@@ -3,11 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class LoadOrNewGame : MonoBehaviour
 {
 
     public SUB_TYPE SUB_TYPE;
+
+    public Slider FOV;
+    public TMP_Text FOV_TEXT;
+
+    public Dropdown resolution;
+
+    public Toggle fullscreen;
+
+    int[] screenX = new int[]{
+        1366,
+        1366,
+        1280,
+        1920,
+        1920
+    };
+
+    int[] screenY = new int[]{
+        768,
+        766,
+        720,
+        1080,
+        1440
+    };
 
     public GameObject Parent;
 
@@ -26,6 +49,11 @@ public class LoadOrNewGame : MonoBehaviour
                 }
                 i++;
             }
+        }
+        if(SUB_TYPE == SUB_TYPE.OPTION)
+        {
+            FOV.value = GameGlobal.FOV;
+            FOV_TEXT.text = GameGlobal.FOV.ToString();
         }
         if (Parent.activeSelf) { 
             Parent.SetActive(false);
@@ -57,6 +85,20 @@ public class LoadOrNewGame : MonoBehaviour
         SceneManager.LoadScene("MainCharacterChamberScene");
     }
 
+    public void SaveOptions()
+    {
+        GameGlobal.FOV = (int) FOV.value;
+
+        Screen.SetResolution(screenX[resolution.value], screenY[resolution.value], fullscreen.isOn);
+        
+        Close();
+    }
+
+    public void SaveFOV()
+    {
+        int i = (int) FOV.value;
+        FOV_TEXT.text = i.ToString();
+    }
 
 }
 
@@ -64,5 +106,6 @@ public class LoadOrNewGame : MonoBehaviour
 public enum SUB_TYPE
 {
     NEW,
-    LOAD
+    LOAD,
+    OPTION
 }

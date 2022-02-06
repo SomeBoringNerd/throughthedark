@@ -21,6 +21,8 @@ public class PlayerAiming : MonoBehaviour
     //The real rotation of the camera without recoil
     private Vector3 realRotation;
 
+	public Camera player_cam;
+
 	[Header("Aimpunch")]
 	[Tooltip("bigger number makes the response more damped, smaller is less damped, currently the system will overshoot, with larger damping values it won't")]
 	public float punchDamping = 9.0f;
@@ -40,6 +42,7 @@ public class PlayerAiming : MonoBehaviour
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
 
+		player_cam.fieldOfView = GameGlobal.FOV;
 
 	}
 

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Fragsurf.Movement;
-using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -118,6 +117,7 @@ public class Student : MonoBehaviour
         {
             Student_Name = "PLACEHOLDER";
         }
+        // now we do the good stuff.
         
         PressEToContinue.SetActive(false);
         

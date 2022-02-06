@@ -21,6 +21,12 @@ public class GameGlobal
         get => PlayerPrefs.GetInt("Profile");
         set => PlayerPrefs.SetInt("Profile", value);
     }
+
+    public static int FOV
+    {
+        get => PlayerPrefs.GetInt("FOV");
+        set => PlayerPrefs.SetInt("FOV", value);
+    }
     
     public static int Reputation
     {

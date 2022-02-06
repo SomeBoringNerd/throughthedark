@@ -53,6 +53,7 @@ public class MainMenuScript : MonoBehaviour
     {
         loadAndNewSubMenu[0].SetActive(false);
         loadAndNewSubMenu[1].SetActive(false);
+        loadAndNewSubMenu[2].SetActive(false);
 
         loadAndNewSubMenu[i].SetActive(true);
     }
