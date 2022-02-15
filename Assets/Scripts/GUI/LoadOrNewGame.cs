@@ -54,6 +54,7 @@ public class LoadOrNewGame : MonoBehaviour
         {
             FOV.value = GameGlobal.FOV;
             FOV_TEXT.text = GameGlobal.FOV.ToString();
+            fullscreen.isOn = Screen.fullScreen;
         }
         if (Parent.activeSelf) { 
             Parent.SetActive(false);
@@ -90,6 +91,15 @@ public class LoadOrNewGame : MonoBehaviour
         GameGlobal.FOV = (int) FOV.value;
 
         Screen.SetResolution(screenX[resolution.value], screenY[resolution.value], fullscreen.isOn);
+
+        Camera[] cameras = GetComponents<Camera>();
+
+        foreach(Camera camera in cameras){
+            if(camera.tag == "MainCamera" && SceneManager.GetActiveScene().name != "MainMenu")
+            {
+                camera.fieldOfView = GameGlobal.FOV;
+            }
+        }
         
         Close();
     }

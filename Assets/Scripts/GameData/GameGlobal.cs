@@ -15,6 +15,11 @@ public class GameGlobal
         set => PlayerPrefs.SetInt("PlayerIsNearADoor", (value ? 1 : 0));
     }
 
+    public static bool canUseMenus
+    {
+        get => PlayerPrefs.GetInt("canUseMenus") == 1;
+        set => PlayerPrefs.SetInt("canUseMenus", (value ? 1 : 0));
+    }
 
     public static int Profile
     {
@@ -49,6 +54,12 @@ public class GameGlobal
     {
         int profile = Profile;
         return PlayerPrefs.GetString("profile_" + GameGlobal.Profile + "_notebook_" + number);
+    }
+
+    public static string scenetoload
+    {
+        get => PlayerPrefs.GetString("scenetoload");
+        set => PlayerPrefs.SetString("scenetoload", value);
     }
 
     public static void setPage(int number, string t)

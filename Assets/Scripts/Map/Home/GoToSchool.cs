@@ -43,6 +43,8 @@ public class GoToSchool : MonoBehaviour
                 GUI_GET_OUT.SetActive(false);
                 playerMovement.canMove = true;
                 playerCamera.canCameraMove = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
 
@@ -53,11 +55,18 @@ public class GoToSchool : MonoBehaviour
                 GUI_GET_OUT.SetActive(true);
                 playerMovement.canMove = false;
                 playerCamera.canCameraMove = false;
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.Confined;
             }
         }
         else
         {
             interactable.InteractableText[0].text = string.Empty;
         }
+    }
+
+    public void LoadNewScene(string scene){
+        GameGlobal.scenetoload = scene;
+        SceneManager.LoadScene("LoadingScene");
     }
 }

@@ -28,12 +28,33 @@ public class MainMenuScript : MonoBehaviour
 
     void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.F5)) { 
+        if (Input.GetKeyDown(KeyCode.F5) && SceneManager.GetActiveScene().name == "MainMenu") { 
             PlayerPrefs.DeleteAll();
+            Screen.SetResolution(1280, 720, false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-#endif
+    }
+
+    public void onEnable()
+    {
+        Time.timeScale = 0;
+        GetComponent<PlayerAiming>().canCameraMove = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+
+    public void Close()
+    {
+        onDisable();
+        gameObject.SetActive(false);
+    }
+
+    public void onDisable()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GetComponent<PlayerAiming>().canCameraMove = true;
     }
 
     void DisplayWarning()

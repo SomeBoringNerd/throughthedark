@@ -12,25 +12,9 @@ public class LoadingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // let's hope that it work well.
-        //Time.timeScale = .001f;
-        SceneManager.LoadSceneAsync("SchoolScene");
+        loadingText.text = "Attempting to load " + GameGlobal.scenetoload + ". If it don't work after a while, please create an issue on https://github.com/SomeBoringNerd/throughthedark with as much info as possible.";
 
-    }
-
-    // it fucking don't work. Shit.
-    IEnumerator SchoolScene()
-    {
-        AsyncOperation operation = null;
-
-        while (!operation.isDone)
-        {
-            float progress = Mathf.Clamp01(operation.progress / .9f);
-
-            loadingText.text = "Scene is " + progress + "% loaded";
-        }
-
-        yield return null;
+        SceneManager.LoadSceneAsync(GameGlobal.scenetoload);
     }
 }
 

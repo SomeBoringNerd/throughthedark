@@ -134,6 +134,7 @@ public class Student : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
+                GameGlobal.canUseMenus = false;
                 playerReference.canCameraMove = false;
                 playerMovement.canMove = false;
                 
@@ -278,6 +279,7 @@ public class Student : MonoBehaviour
             isRoutineAlreadyRunning = false;
             PressEToContinue.SetActive(false);
             speakerName.text = Student_Name;
+            GameGlobal.canUseMenus = true;
         }
     }
     

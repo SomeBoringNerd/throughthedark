@@ -23,6 +23,8 @@ public class PlayerAiming : MonoBehaviour
 
 	public Camera player_cam;
 
+	public GameObject MainMenu;
+
 	[Header("Aimpunch")]
 	[Tooltip("bigger number makes the response more damped, smaller is less damped, currently the system will overshoot, with larger damping values it won't")]
 	public float punchDamping = 9.0f;
@@ -41,8 +43,11 @@ public class PlayerAiming : MonoBehaviour
 		// Lock the mouse
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
-
+		GameGlobal.canUseMenus = true;
+		MainMenu.SetActive(false);
 		player_cam.fieldOfView = GameGlobal.FOV;
+		
+		
 
 	}
 
@@ -57,6 +62,16 @@ public class PlayerAiming : MonoBehaviour
             UnityEditor.EditorApplication.isPlaying = false;
         }
 #endif
+		if(Input.GetKeyDown(KeyCode.Escape) && GameGlobal.canUseMenus && MainMenu != null)
+		{
+			MainMenu.SetActive(!MainMenu.activeSelf);
+			if(MainMenu.activeSelf){
+				MainMenu.GetComponent<MainMenuScript>().onEnable();
+			}else{
+				MainMenu.GetComponent<MainMenuScript>().onDisable();
+			}
+		}
+		
         if (canCameraMove)
         {
             // Fix pausing
