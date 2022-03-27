@@ -29,6 +29,8 @@ namespace Fragsurf.Movement {
         public Transform viewTransform;
         public Transform playerRotationTransform;
 
+        public Animator cameraAnim;
+
         [Header ("Crouching setup")]
         public float crouchingHeightMultiplier = 0.5f;
         public float crouchingSpeed = 10f;
@@ -222,12 +224,14 @@ namespace Fragsurf.Movement {
             {
                 _colliderObject.transform.rotation = Quaternion.identity;
 
+                //if
 
                 //UpdateTestBinds ();
                 UpdateMoveData();
 
                 // Previous movement code
                 Vector3 positionalMovement = transform.position - prevPosition;
+                
                 transform.position = prevPosition;
                 moveData.origin += positionalMovement;
 
@@ -298,6 +302,13 @@ namespace Fragsurf.Movement {
             bool moveFwd = _moveData.verticalAxis > 0f;
             bool moveBack = _moveData.verticalAxis < 0f;
             bool jump = Input.GetButton ("Jump");
+
+            if((moveLeft || moveRight || moveFwd || moveBack) && GameGlobal.ViewBobbing)
+            {
+                cameraAnim.SetBool("isIdle", false);
+            }else{
+                cameraAnim.SetBool("isIdle", true);
+            }
 
             if (!moveLeft && !moveRight)
                 _moveData.sideMove = 0f;

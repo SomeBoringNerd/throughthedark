@@ -945,6 +945,7 @@ MonoBehaviour:
   FOV_TEXT: {fileID: 0}
   resolution: {fileID: 0}
   fullscreen: {fileID: 0}
+  viewBobbing: {fileID: 0}
   Parent: {fileID: 5941801643242047918}
   Profiles_Parent:
   - {fileID: 5941801644935537635}
@@ -1478,6 +1479,7 @@ MonoBehaviour:
   FOV_TEXT: {fileID: 0}
   resolution: {fileID: 0}
   fullscreen: {fileID: 0}
+  viewBobbing: {fileID: 0}
   Parent: {fileID: 5941801643362633947}
   Profiles_Parent:
   - {fileID: 5941801644551030098}
@@ -5747,6 +5749,7 @@ MonoBehaviour:
   FOV_TEXT: {fileID: 5941801644823218300}
   resolution: {fileID: 5941801643520231331}
   fullscreen: {fileID: 5941801644024172613}
+  viewBobbing: {fileID: 0}
   Parent: {fileID: 5941801644876733233}
   Profiles_Parent:
   - {fileID: 0}

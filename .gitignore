@@ -19,3 +19,4 @@ Library/Bee/
 .idea/
 .vscode/
 test/
+*.blob

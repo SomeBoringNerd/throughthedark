@@ -45,10 +45,12 @@ public class PlayerAiming : MonoBehaviour
 		Cursor.visible   = false;
 		GameGlobal.canUseMenus = true;
 		MainMenu.SetActive(false);
-		player_cam.fieldOfView = GameGlobal.FOV;
-		
-		
 
+		if(GameGlobal.FOV < 60 || GameGlobal.FOV > 120){
+			GameGlobal.FOV = 90;
+		}
+
+		player_cam.fieldOfView = GameGlobal.FOV;
 	}
 
 	private void Update()

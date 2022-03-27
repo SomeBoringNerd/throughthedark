@@ -14,7 +14,7 @@ public class LoadOrNewGame : MonoBehaviour
 
     public Dropdown resolution;
 
-    public Toggle fullscreen;
+    public Toggle fullscreen, viewBobbing;
 
     int[] screenX = new int[]{
         1366,
@@ -55,6 +55,7 @@ public class LoadOrNewGame : MonoBehaviour
             FOV.value = GameGlobal.FOV;
             FOV_TEXT.text = GameGlobal.FOV.ToString();
             fullscreen.isOn = Screen.fullScreen;
+            viewBobbing.isOn = GameGlobal.ViewBobbing;
         }
         if (Parent.activeSelf) { 
             Parent.SetActive(false);
@@ -74,7 +75,7 @@ public class LoadOrNewGame : MonoBehaviour
         if (SUB_TYPE == SUB_TYPE.NEW)
         {
             GameGlobal.EraseData(profile);
-
+            GameGlobal.FOV = 90;
             for(int i = 0; i != 51; i++)
             {
                 GameGlobal.setPage(i, "");
@@ -94,12 +95,9 @@ public class LoadOrNewGame : MonoBehaviour
 
         Camera[] cameras = GetComponents<Camera>();
 
-        foreach(Camera camera in cameras){
-            if(camera.tag == "MainCamera" && SceneManager.GetActiveScene().name != "MainMenu")
-            {
-                camera.fieldOfView = GameGlobal.FOV;
-            }
-        }
+        GameGlobal.ViewBobbing = viewBobbing.isOn;
+
+        FindObjectOfType<PlayerAiming>().player_cam.fieldOfView = GameGlobal.FOV;
         
         Close();
     }

@@ -35,12 +35,19 @@ MonoBehaviour:
       playModeViewSettings:
         rid: 8344238392213766144
     - displayName: HDMI-A-1
-      displayId: 282178109
+      displayId: 282127456
       enabled: 1
       mode: 0
       viewWindowTitle: Game
       playModeViewSettings:
         rid: 8344238392213766145
+    - displayName: HDMI-A-1
+      displayId: -1168352463
+      enabled: 1
+      mode: 0
+      viewWindowTitle: Game
+      playModeViewSettings:
+        rid: 1699251593842524160
     m_buildTarget: 24
     displayAPIMode: 1
     m_displayAPIUseSystemConfiguration: 0
@@ -55,12 +62,30 @@ MonoBehaviour:
     mode: 0
     viewWindowTitle: Game
     playModeViewSettings:
-      rid: 8344238394442514433
+      rid: 1699251597798801421
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1699251593842524160
+      type: {class: GameViewFullscreenSettings, ns: UnityEditor, asm: UnityEditor.CoreModule}
+      data:
+        m_displayNumber: 2
+        m_showToolbar: 0
+        m_vsyncEnabled: 0
+        m_showStats: 0
+        m_showGizmos: 0
+        m_selectedSizeIndex: 0
+    - rid: 1699251597798801421
+      type: {class: GameViewFullscreenSettings, ns: UnityEditor, asm: UnityEditor.CoreModule}
+      data:
+        m_displayNumber: 0
+        m_showToolbar: 0
+        m_vsyncEnabled: 0
+        m_showStats: 0
+        m_showGizmos: 0
+        m_selectedSizeIndex: 0
     - rid: 8344238392213766144
       type: {class: GameViewFullscreenSettings, ns: UnityEditor, asm: UnityEditor.CoreModule}
       data:
@@ -79,12 +104,3 @@ MonoBehaviour:
         m_showStats: 0
         m_showGizmos: 0
         m_selectedSizeIndex: 0
-    - rid: 8344238394442514433
-      type: {class: GameViewFullscreenSettings, ns: UnityEditor, asm: UnityEditor.CoreModule}
-      data:
-        m_displayNumber: 0
-        m_showToolbar: 0
-        m_vsyncEnabled: 0
-        m_showStats: 0
-        m_showGizmos: 0
-        m_selectedSizeIndex: 1

@@ -22,6 +22,10 @@ public class MainMenuScript : MonoBehaviour
         Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)
         {
+            if(PlayerPrefs.GetInt("Version") < version)
+            {
+                GameGlobal.ViewBobbing = true;
+            }
             PlayerPrefs.SetInt("Version", version);
         }
     }
@@ -38,9 +42,9 @@ public class MainMenuScript : MonoBehaviour
     public void onEnable()
     {
         Time.timeScale = 0;
-        GetComponent<PlayerAiming>().canCameraMove = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        FindObjectOfType<PlayerAiming>().canCameraMove = false;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void Close()
@@ -54,7 +58,7 @@ public class MainMenuScript : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GetComponent<PlayerAiming>().canCameraMove = true;
+        FindObjectOfType<PlayerAiming>().canCameraMove = true;
     }
 
     void DisplayWarning()
@@ -72,6 +76,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void ShowItem(int i)
     {
+        Debug.Log("test " + i);
         loadAndNewSubMenu[0].SetActive(false);
         loadAndNewSubMenu[1].SetActive(false);
         loadAndNewSubMenu[2].SetActive(false);

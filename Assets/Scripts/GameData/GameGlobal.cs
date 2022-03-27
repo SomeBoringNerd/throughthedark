@@ -15,6 +15,12 @@ public class GameGlobal
         set => PlayerPrefs.SetInt("PlayerIsNearADoor", (value ? 1 : 0));
     }
 
+    public static bool ViewBobbing
+    {
+        get => PlayerPrefs.GetInt("ViewBobbing") == 1;
+        set => PlayerPrefs.SetInt("ViewBobbing", (value ? 1 : 0));
+    }
+
     public static bool canUseMenus
     {
         get => PlayerPrefs.GetInt("canUseMenus") == 1;
