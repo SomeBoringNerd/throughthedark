@@ -10,7 +10,7 @@ public class MainMenuScript : MonoBehaviour
     public GameObject[] loadAndNewSubMenu;
     public Text Title;
 
-    int version = 1;
+    int version = 2;
     string type = "prototype";
 
     public GameObject warningObject;
@@ -22,7 +22,7 @@ public class MainMenuScript : MonoBehaviour
         Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)
         {
-            if(PlayerPrefs.GetInt("Version") < version)
+            if(PlayerPrefs.GetInt("Version") == 0)
             {
                 GameGlobal.ViewBobbing = true;
             }

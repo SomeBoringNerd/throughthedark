@@ -76,6 +76,7 @@ public class LoadOrNewGame : MonoBehaviour
         {
             GameGlobal.EraseData(profile);
             GameGlobal.FOV = 90;
+            GameGlobal.ViewBobbing = true;
             for(int i = 0; i != 51; i++)
             {
                 GameGlobal.setPage(i, "");
