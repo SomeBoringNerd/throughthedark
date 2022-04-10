@@ -22,9 +22,13 @@ public class MainMenuScript : MonoBehaviour
         Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)
         {
-            if(PlayerPrefs.GetInt("Version") == 0)
+            if(PlayerPrefs.GetInt("Version") <= 0)
             {
                 GameGlobal.ViewBobbing = true;
+            }
+            if(PlayerPrefs.GetInt("Version") <= 2)
+            {
+                GameGlobal.Sensitivity = 100;
             }
             PlayerPrefs.SetInt("Version", version);
         }

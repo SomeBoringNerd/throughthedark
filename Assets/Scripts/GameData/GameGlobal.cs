@@ -33,6 +33,12 @@ public class GameGlobal
         set => PlayerPrefs.SetInt("Profile", value);
     }
 
+    public static float Sensitivity
+    {
+        get => PlayerPrefs.GetFloat("Sensitivity");
+        set => PlayerPrefs.SetFloat("Sensitivity", value);
+    }
+
     public static int FOV
     {
         get => PlayerPrefs.GetInt("FOV");

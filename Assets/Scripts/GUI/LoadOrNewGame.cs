@@ -12,7 +12,7 @@ public class LoadOrNewGame : MonoBehaviour
     public Slider FOV;
     public TMP_Text FOV_TEXT;
 
-    public Dropdown resolution;
+    public Dropdown resolution, sensitivity;
 
     public Toggle fullscreen, viewBobbing;
 
@@ -76,6 +76,7 @@ public class LoadOrNewGame : MonoBehaviour
         {
             GameGlobal.EraseData(profile);
             GameGlobal.FOV = 90;
+            GameGlobal.Sensitivity = 100;
             GameGlobal.ViewBobbing = true;
             for(int i = 0; i != 51; i++)
             {
@@ -91,6 +92,7 @@ public class LoadOrNewGame : MonoBehaviour
     public void SaveOptions()
     {
         GameGlobal.FOV = (int) FOV.value;
+        GameGlobal.Sensitivity = (int)sensitivity.value;
 
         Screen.SetResolution(screenX[resolution.value], screenY[resolution.value], fullscreen.isOn);
 
@@ -99,7 +101,9 @@ public class LoadOrNewGame : MonoBehaviour
         GameGlobal.ViewBobbing = viewBobbing.isOn;
 
         FindObjectOfType<PlayerAiming>().player_cam.fieldOfView = GameGlobal.FOV;
-        
+        FindObjectOfType<PlayerAiming>().sensitivityMultiplier = GameGlobal.Sensitivity / 100;
+
+
         Close();
     }
 

@@ -40,6 +40,7 @@ public class PlayerAiming : MonoBehaviour
 
 	private void Start()
 	{
+        sensitivityMultiplier = GameGlobal.Sensitivity / 100;
 		// Lock the mouse
 		Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible   = false;
