@@ -9,10 +9,10 @@ public class LoadOrNewGame : MonoBehaviour
 
     public SUB_TYPE SUB_TYPE;
 
-    public Slider FOV;
-    public TMP_Text FOV_TEXT;
+    public Slider FOV, sensitivity;
+    public TMP_Text FOV_TEXT, SENSITIVITY_TEXT;
 
-    public Dropdown resolution, sensitivity;
+    public Dropdown resolution;
 
     public Toggle fullscreen, viewBobbing;
 
@@ -53,7 +53,9 @@ public class LoadOrNewGame : MonoBehaviour
         if(SUB_TYPE == SUB_TYPE.OPTION)
         {
             FOV.value = GameGlobal.FOV;
+            sensitivity.value = GameGlobal.Sensitivity;
             FOV_TEXT.text = GameGlobal.FOV.ToString();
+            SENSITIVITY_TEXT.text = GameGlobal.Sensitivity.ToString();
             fullscreen.isOn = Screen.fullScreen;
             viewBobbing.isOn = GameGlobal.ViewBobbing;
         }
@@ -92,6 +94,8 @@ public class LoadOrNewGame : MonoBehaviour
     public void SaveOptions()
     {
         GameGlobal.FOV = (int) FOV.value;
+
+        // i declared sensitivity as a dropdown instead of a slider 💀
         GameGlobal.Sensitivity = (int)sensitivity.value;
 
         Screen.SetResolution(screenX[resolution.value], screenY[resolution.value], fullscreen.isOn);
@@ -100,9 +104,10 @@ public class LoadOrNewGame : MonoBehaviour
 
         GameGlobal.ViewBobbing = viewBobbing.isOn;
 
-        FindObjectOfType<PlayerAiming>().player_cam.fieldOfView = GameGlobal.FOV;
-        FindObjectOfType<PlayerAiming>().sensitivityMultiplier = GameGlobal.Sensitivity / 100;
-
+        if(FindObjectOfType<PlayerAiming>() != null) {
+            FindObjectOfType<PlayerAiming>().sensitivityMultiplier = GameGlobal.Sensitivity / 100;
+            FindObjectOfType<PlayerAiming>().player_cam.fieldOfView = GameGlobal.FOV;
+        }
 
         Close();
     }
@@ -111,6 +116,12 @@ public class LoadOrNewGame : MonoBehaviour
     {
         int i = (int) FOV.value;
         FOV_TEXT.text = i.ToString();
+    }
+
+    public void UpdateSensitibity()
+    {
+        int i = (int) sensitivity.value;
+        SENSITIVITY_TEXT.text = i.ToString();
     }
 
 }
