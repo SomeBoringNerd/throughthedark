@@ -19,6 +19,7 @@ public class RaycastScript : MonoBehaviour
             {
                 target = entity.GetComponent<InteractableScript>();
                 target.isUsable = true;
+                
                 target.UI_PARENT.SetActive(true);
             }
         }
