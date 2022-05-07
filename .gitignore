@@ -20,3 +20,5 @@ Library/Bee/
 .vscode/
 test/
 *.blob
+*.exr
+Assets/Scenes/SchoolScene/LightingData.asset

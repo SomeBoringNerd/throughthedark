@@ -67,8 +67,8 @@ public class PlayerAiming : MonoBehaviour
 		if(GameGlobal.FOV < 60 || GameGlobal.FOV > 120){
 			GameGlobal.FOV = 90;
 		}
-
-		player_cam.fieldOfView = GameGlobal.FOV;
+        Application.targetFrameRate = 9999;
+        player_cam.fieldOfView = GameGlobal.FOV;
 	}
 
 	private void Update()
@@ -87,7 +87,7 @@ public class PlayerAiming : MonoBehaviour
             frames = 0;
         }
 
-        Application.targetFrameRate = 60;
+
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F5))
