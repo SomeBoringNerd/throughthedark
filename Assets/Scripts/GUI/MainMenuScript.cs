@@ -13,7 +13,7 @@ public class MainMenuScript : MonoBehaviour
     int version = 2;
     string type = "prototype";
 
-    public GameObject warningObject;
+    public GameObject warningObject, debug_menu;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class MainMenuScript : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            Loader.Loader.Hook();
+            //Loader.Loader.Hook();
         }
         
         Title.text = "version-" + type + "-" + version;
@@ -92,5 +92,12 @@ public class MainMenuScript : MonoBehaviour
         loadAndNewSubMenu[2].SetActive(false);
 
         loadAndNewSubMenu[i].SetActive(true);
+    }
+
+    public void debugmenu()
+    {
+        if (debug_menu == null) return;
+        
+        
     }
 }

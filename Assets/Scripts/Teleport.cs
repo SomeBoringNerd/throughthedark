@@ -7,7 +7,7 @@ public class Teleport : MonoBehaviour
 
     public GameObject debug_menu;
 
-    public GameObject Player, item_showcase_object, player_spawn_school;
+    public GameObject Player, item_showcase_object, player_spawn_school, possible_new_background;
 
     void Start()
     {
@@ -31,6 +31,9 @@ public class Teleport : MonoBehaviour
                 Player.transform.rotation = player_spawn_school.transform.rotation;
 
                 debug_menu.SetActive(false);
+            }else if (Input.GetKeyDown(KeyCode.F3))
+            {
+                possible_new_background.SetActive(!possible_new_background.activeSelf);
             }
         }
         else

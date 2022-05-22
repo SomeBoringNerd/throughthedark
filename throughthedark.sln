@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Scripts", "Boxophobic.Utils.Scripts.csproj", "{971e3f25-aa82-499a-10c6-11fc3887d445}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{09eba606-7cdd-8fdd-9e30-4bf0009bc5d7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Scripts", "Boxophobic.Utils.Scripts.csproj", "{971e3f25-aa82-499a-10c6-11fc3887d445}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Editor", "Boxophobic.Utils.Editor.csproj", "{17e65298-4a9c-c508-cebe-eb95cff94c4f}"
 EndProject
@@ -14,10 +14,10 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{971e3f25-aa82-499a-10c6-11fc3887d445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{971e3f25-aa82-499a-10c6-11fc3887d445}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09eba606-7cdd-8fdd-9e30-4bf0009bc5d7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{09eba606-7cdd-8fdd-9e30-4bf0009bc5d7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971e3f25-aa82-499a-10c6-11fc3887d445}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971e3f25-aa82-499a-10c6-11fc3887d445}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17e65298-4a9c-c508-cebe-eb95cff94c4f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{17e65298-4a9c-c508-cebe-eb95cff94c4f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b2e734df-8222-a21b-b689-3174eefcceac}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
