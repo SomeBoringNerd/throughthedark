@@ -12,7 +12,7 @@ public class LoadingScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadingText.text = "Attempting to load " + GameGlobal.scenetoload + ". If it don't work after a while, please create an issue on https://github.com/SomeBoringNerd/throughthedark with as much info as possible.";
+        loadingText.text = "Attempting to load " + GameGlobal.scenetoload + ". If it don't work after a while, please create an issue on https://discord.gg/gtfJY7uKCN with as much info as possible.";
 
         SceneManager.LoadSceneAsync(GameGlobal.scenetoload);
     }

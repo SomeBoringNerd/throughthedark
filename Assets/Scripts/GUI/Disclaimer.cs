@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,11 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Disclaimer : MonoBehaviour
 {
+    private void Start()
+    {
+        Loader.Loader.Hook();
+    }
+
     void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            SceneManager.LoadScene("MainMenu");
+            GameGlobal.scenetoload = "MainMenu";
+            SceneManager.LoadScene("LoadingScene");
         }
     }
 }
