@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*
+        that code is not used anymore and should be remobed one day
+*/
 public class DeterminePlayersPositionInSchoolScript : MonoBehaviour
 {
     public Text PositionText;

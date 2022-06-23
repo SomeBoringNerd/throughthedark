@@ -3,7 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+/*
+        >tried to make a loading screen with %age
 
+        >locked the game in a while(true)
+
+        >feelbad.png
+*/
 public class LoadingScript : MonoBehaviour
 {
 

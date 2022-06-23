@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/*
+        unused, should remove it later
+*/
 public class TriggerScript : MonoBehaviour
 {
     public DeterminePlayersPositionInSchoolScript PlayerPositionScript;

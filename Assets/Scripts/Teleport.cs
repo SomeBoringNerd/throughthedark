@@ -2,49 +2,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+        this class is used for the debug menu unlike what it's name can make you think
+*/
 public class Teleport : MonoBehaviour
 {
-
+    // debug meny instance
     public GameObject debug_menu;
 
-    public GameObject Player, item_showcase_object, player_spawn_school, possible_new_background;
+    // waypoints
+    public GameObject item_showcase_object, player_spawn_school, possible_new_background;
+
+    // player object
+    public GameObject Player;
 
     void Start()
     {
+        // disable debug menu
         debug_menu.SetActive(false);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (debug_menu.activeSelf)
         {
+            // teleport to the item showcase place
             if (Input.GetKeyDown(KeyCode.F1))
             {
                 Player.transform.position = item_showcase_object.transform.position;
                 Player.transform.rotation = item_showcase_object.transform.rotation;
 
                 debug_menu.SetActive(false);
-            }else if (Input.GetKeyDown(KeyCode.F2))
+            }
+            // teleport at the spawnpoint
+            else if (Input.GetKeyDown(KeyCode.F2))
             {
                 Player.transform.position = player_spawn_school.transform.position;
                 Player.transform.rotation = player_spawn_school.transform.rotation;
 
                 debug_menu.SetActive(false);
-            }else if (Input.GetKeyDown(KeyCode.F3))
+            }
+            // display the visual background
+            else if (Input.GetKeyDown(KeyCode.F3))
             {
                 possible_new_background.SetActive(!possible_new_background.activeSelf);
             }
         }
         else
         {
+            // toggle on the debug menu
             if (Input.GetKeyDown(KeyCode.Asterisk))
             {
                 debug_menu.SetActive(true);
             }
         }
 
-
+        // *fall*back if the player somehow fall off the map (see NoFallScript for more infos)
         if(Player.transform.position.y < -50)
         {
             Player.transform.position = player_spawn_school.transform.position;

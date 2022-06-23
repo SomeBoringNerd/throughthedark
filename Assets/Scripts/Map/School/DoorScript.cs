@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*
+        unused, should remove it later
+*/
 public class DoorScript : MonoBehaviour
 {
     // 0 = from inside the classroom || 1 = from outside

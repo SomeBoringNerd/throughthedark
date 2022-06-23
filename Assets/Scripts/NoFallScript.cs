@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+/*
+        just some dumb code to avoid the player falling.
 
+        Might disable later idk
+*/
 public class NoFallScript : MonoBehaviour
 {
 

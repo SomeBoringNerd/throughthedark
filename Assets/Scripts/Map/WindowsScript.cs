@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+/*
 
+*/
 public class WindowsScript : MonoBehaviour
 {
 
@@ -10,6 +12,7 @@ public class WindowsScript : MonoBehaviour
     public DOOR_OPENED_STATE WINDOWS_STATE;
     public GameObject[] Windows;
 
+    // @TODO : change it to animation
     public void Start()
     {
         Windows[1].SetActive(false);

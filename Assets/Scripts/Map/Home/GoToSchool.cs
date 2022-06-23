@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Fragsurf.Movement;
 using UnityEngine.SceneManagement;
-
+/*
+        that code give me nightmares
+*/
 public class GoToSchool : MonoBehaviour
 {
 
@@ -23,7 +25,6 @@ public class GoToSchool : MonoBehaviour
     void Start()
     {
         text.text = string.Empty;
-        Application.targetFrameRate = 60;
         GUI_GET_OUT.SetActive(false);
     }
 

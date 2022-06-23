@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+/*
+        fairly basic script that put isUsable to true when raycasted
+*/
 public class InteractableScript : MonoBehaviour
 {
     public GameObject UI_PARENT;

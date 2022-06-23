@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
-
+/*
+        dont fucking touch that, last time i tried, i broke everything and had to revert the changes
+*/
 public class RaycastScript : MonoBehaviour
 {
 

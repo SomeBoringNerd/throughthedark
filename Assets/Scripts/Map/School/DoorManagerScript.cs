@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+/*
+        unused, should remove it later
+*/
 public class DoorManagerScript : MonoBehaviour
 {
     public DoorScript[] AllTheDoors;

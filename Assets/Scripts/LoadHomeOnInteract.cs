@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+        quite explcit
+*/
 public class LoadHomeOnInteract : MonoBehaviour
 {
     

@@ -5,7 +5,13 @@ using Fragsurf.Movement;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+ /*
  
+        Logic behind the npcs
+
+        todo : 
+ 
+ */
 public class Student : MonoBehaviour
 {
     [Header("Main infos")]
@@ -52,6 +58,7 @@ public class Student : MonoBehaviour
     private void Start()
     {
         // if i forget to add those variables, the script break.
+        // if i'm not retarded, it should work as intended, but we never know
         if (ByeDialogue_Speaker.Length == 0)
         {
             ByeDialogue_Speaker = new string[]
@@ -130,6 +137,7 @@ public class Student : MonoBehaviour
 
     void Update()
     {
+        // logic to see if the player is looking at a npc and pressing E (will add support for custom control later)
         if (interaction.isUsable && !parentGUI.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -143,6 +151,7 @@ public class Student : MonoBehaviour
                 int rng = Random.Range(1, 2);
                 Debug.Log(rng);
                 
+                // say a random line
                 StartCoroutine(sayStuff(RegularLines[(rng == 1 ? 0 : 2)], Student_Name));
             }
         }
@@ -220,6 +229,8 @@ public class Student : MonoBehaviour
                     }
                     break;
                 case INTERACTION_TYPE.FLIRT:
+                    if (!CAN_HAVE_ROMANCE) break;
+                    
                     int k = 0;
                     foreach (string dialog_line in FlirtDialogue)
                     {
