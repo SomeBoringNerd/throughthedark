@@ -11,7 +11,6 @@ public class RaycastScript : MonoBehaviour
     public void Start()
     {
         target = null;
-        Application.targetFrameRate = 9999;
     }
 
     public void OnTriggerStay(Collider entity)

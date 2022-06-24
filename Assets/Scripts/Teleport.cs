@@ -11,7 +11,14 @@ public class Teleport : MonoBehaviour
     public GameObject debug_menu;
 
     // waypoints
-    public GameObject item_showcase_object, player_spawn_school, possible_new_background;
+    public GameObject item_showcase_object, player_spawn_school;
+    
+    // fake background
+    public GameObject possible_new_background;
+
+    // change the school
+    public GameObject school_ld, school_hd;
+    bool newSchoolLoaded = true;
 
     // player object
     public GameObject Player;
@@ -47,6 +54,15 @@ public class Teleport : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.F3))
             {
                 possible_new_background.SetActive(!possible_new_background.activeSelf);
+                debug_menu.SetActive(false);
+            }
+            else if (Input.GetKeyDown(KeyCode.F4))
+            {
+                newSchoolLoaded = !newSchoolLoaded;
+
+                school_hd.SetActive(!newSchoolLoaded);
+                school_ld.SetActive(newSchoolLoaded);
+                debug_menu.SetActive(false);
             }
         }
         else

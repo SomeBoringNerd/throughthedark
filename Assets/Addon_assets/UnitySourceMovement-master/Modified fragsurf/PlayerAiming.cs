@@ -67,7 +67,6 @@ public class PlayerAiming : MonoBehaviour
 		if(GameGlobal.FOV < 60 || GameGlobal.FOV > 120){
 			GameGlobal.FOV = 90;
 		}
-        Application.targetFrameRate = 9999;
         player_cam.fieldOfView = GameGlobal.FOV;
 	}
 

@@ -18,14 +18,13 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Application.targetFrameRate = 9999;
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             //Loader.Loader.Hook();
         }
         
         Title.text = "version-" + type + "-" + version;
-        Application.targetFrameRate = 60;
         if (PlayerPrefs.GetInt("Version") != version)
         {
             if(PlayerPrefs.GetInt("Version") <= 0)

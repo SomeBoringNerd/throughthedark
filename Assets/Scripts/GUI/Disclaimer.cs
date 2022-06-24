@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Disclaimer : MonoBehaviour
 {
+    // used to launch the modhook functionality
     private void Start()
     {
         Loader.Loader.Hook();
