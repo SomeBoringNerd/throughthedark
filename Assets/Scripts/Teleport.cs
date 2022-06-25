@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /*
         this class is used for the debug menu unlike what it's name can make you think
@@ -23,10 +24,14 @@ public class Teleport : MonoBehaviour
     // player object
     public GameObject Player;
 
+    public Text text;
+
     void Start()
     {
         // disable debug menu
         debug_menu.SetActive(false);
+
+        text.gameObject.SetActive(false);
     }
 
     
@@ -56,14 +61,18 @@ public class Teleport : MonoBehaviour
                 possible_new_background.SetActive(!possible_new_background.activeSelf);
                 debug_menu.SetActive(false);
             }
+            // used for displaying the difference between v2 and v3
+            // only execute while in the unity editor
+            #if UNITY_EDITOR
             else if (Input.GetKeyDown(KeyCode.F4))
             {
                 newSchoolLoaded = !newSchoolLoaded;
-
+                text.text = "school loaded : " + (newSchoolLoaded ? "new" : "old");
                 school_hd.SetActive(!newSchoolLoaded);
                 school_ld.SetActive(newSchoolLoaded);
                 debug_menu.SetActive(false);
             }
+            #endif
         }
         else
         {
