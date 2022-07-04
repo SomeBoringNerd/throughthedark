@@ -51,7 +51,6 @@ public class MainMenuScript : MonoBehaviour
     public void onEnable()
     {
         Time.timeScale = 0;
-        FindObjectOfType<PlayerAiming>().canCameraMove = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
     }
@@ -67,7 +66,6 @@ public class MainMenuScript : MonoBehaviour
         Time.timeScale = 1;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        FindObjectOfType<PlayerAiming>().canCameraMove = true;
     }
 
     void DisplayWarning()

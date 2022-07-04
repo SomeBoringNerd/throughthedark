@@ -103,12 +103,12 @@ public class LoadOrNewGame : MonoBehaviour
         Camera[] cameras = GetComponents<Camera>();
 
         GameGlobal.ViewBobbing = viewBobbing.isOn;
-
+/*
         if(FindObjectOfType<PlayerAiming>() != null) {
             FindObjectOfType<PlayerAiming>().sensitivityMultiplier = GameGlobal.Sensitivity / 100;
             FindObjectOfType<PlayerAiming>().player_cam.fieldOfView = GameGlobal.FOV;
         }
-
+*/
         Close();
     }
 

@@ -24,13 +24,16 @@ public class Teleport : MonoBehaviour
     // player object
     public GameObject Player;
 
+    // fog but it dont make sense to toggle it on in that script
+    public GameObject fog;
+
     public Text text;
 
     void Start()
     {
         // disable debug menu
         debug_menu.SetActive(false);
-
+        fog.SetActive(true);
         text.gameObject.SetActive(false);
     }
 
