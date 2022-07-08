@@ -21,15 +21,6 @@ public class GameGlobal
         set => PlayerPrefs.SetInt("PlayerIsNearADoor", (value ? 1 : 0));
     }
     
-    // determine if the player is going through a waypoint
-    // it use the "Player is Near A Door" variable because fuck it, i'm a lazy cunt and cant be bother to edit the copy pasted code
-    public static bool PlayerIsInWaypoint
-    {
-        get => PlayerPrefs.GetInt("PlayerIsNearADoor") == 1;
-        set => PlayerPrefs.SetInt("PlayerIsNearADoor", (value ? 1 : 0));
-    }
-    
-
     // the shaking head animation, should it play ?
     public static bool ViewBobbing
     {

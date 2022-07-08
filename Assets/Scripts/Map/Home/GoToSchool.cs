@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Fragsurf.Movement;
 using UnityEngine.SceneManagement;
 /*
         that code give me nightmares
@@ -15,7 +16,11 @@ public class GoToSchool : MonoBehaviour
 
     public GameObject GUI_GET_OUT;
 
+    public SurfCharacter playerMovement;
+
     public InteractableScript interactable;
+
+    public PlayerAiming playerCamera;
 
     void Start()
     {
@@ -36,9 +41,9 @@ public class GoToSchool : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                GUI_GET_OUT.SetActive(false);/*
+                GUI_GET_OUT.SetActive(false);
                 playerMovement.canMove = true;
-                playerCamera.canCameraMove = true;*/
+                playerCamera.canCameraMove = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
@@ -48,9 +53,9 @@ public class GoToSchool : MonoBehaviour
         {
             interactable.InteractableText[0].text = "Press E to go out";
             if (Input.GetKeyDown(KeyCode.E)){
-                GUI_GET_OUT.SetActive(true);/*
+                GUI_GET_OUT.SetActive(true);
                 playerMovement.canMove = false;
-                playerCamera.canCameraMove = false;*/
+                playerCamera.canCameraMove = false;
                 Cursor.visible = true;
                 Cursor.lockState = CursorLockMode.Confined;
             }

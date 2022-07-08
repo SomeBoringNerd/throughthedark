@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Fragsurf.Movement;
 using UnityEngine.UI;
 using TMPro;
 public class NoteBookScript : MonoBehaviour
 {
+    public PlayerAiming playerCamera;
+    public SurfCharacter playerController;
     public InteractableScript interactable;
 
     public GameObject book_parent;
@@ -50,10 +53,9 @@ public class NoteBookScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && !book_parent.activeSelf)
             {
                 book_parent.SetActive(true);
-                /*
                 playerCamera.enabled = false;
                 playerController.enabled = false;
-                */
+
                 Cursor.lockState = CursorLockMode.Confined;
                 Cursor.visible = true;
 
@@ -81,9 +83,9 @@ public class NoteBookScript : MonoBehaviour
             i++;
         }
 
-        book_parent.SetActive(false);/*
+        book_parent.SetActive(false);
         playerCamera.enabled = true;
-        playerController.enabled = true;*/
+        playerController.enabled = true;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-//using Fragsurf.Movement;
+using Fragsurf.Movement;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -43,15 +43,14 @@ public class Student : MonoBehaviour
     public GENDER GENDER;
     public PERSONALITY PERSONALITY;
     public bool CAN_HAVE_ROMANCE, isRoutineAlreadyRunning, leaveForNow;
-    public GameObject interactionParent, player, aim;
-
+    public GameObject interactionParent;
     
 
     [Header("Reference to other scripts")] 
     public InteractableScript interaction;
 
-//    public PlayerAiming playerReference;
-  //  public SurfCharacter playerMovement;
+    public PlayerAiming playerReference;
+    public SurfCharacter playerMovement;
     
     [Multiline]
     public string Description;
@@ -143,9 +142,9 @@ public class Student : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                GameGlobal.canUseMenus = false;/*
+                GameGlobal.canUseMenus = false;
                 playerReference.canCameraMove = false;
-                playerMovement.canMove = false;*/
+                playerMovement.canMove = false;
                 
                 parentGUI.SetActive(true);
                 
@@ -156,8 +155,6 @@ public class Student : MonoBehaviour
                 StartCoroutine(sayStuff(RegularLines[(rng == 1 ? 0 : 2)], Student_Name));
             }
         }
-
-        transform.rotation = new Quaternion(0, aim.transform.rotation.y, 0, 0);
     }
 
     // this code allow to display text on screen
@@ -282,9 +279,9 @@ public class Student : MonoBehaviour
             {
                 
                 parentGUI.SetActive(false);
-                interactionParent.SetActive(false);/*
+                interactionParent.SetActive(false);
                 playerReference.canCameraMove = true;
-                playerMovement.canMove = true;*/
+                playerMovement.canMove = true;
                 Cursor.visible = false;
                 Cursor.lockState = CursorLockMode.Locked;
             }
