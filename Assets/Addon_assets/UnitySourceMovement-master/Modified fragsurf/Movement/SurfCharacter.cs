@@ -219,56 +219,55 @@ namespace Fragsurf.Movement {
 
         }
 
-        private void Update () {
-            if (canMove)
-            {
-                _colliderObject.transform.rotation = Quaternion.identity;
+        private void Update () 
+        {
+            _colliderObject.transform.rotation = Quaternion.identity;
 
-                //if
+            //if
 
-                //UpdateTestBinds ();
+            //UpdateTestBinds ();
+            if(canMove)
                 UpdateMoveData();
 
-                // Previous movement code
-                Vector3 positionalMovement = transform.position - prevPosition;
-                
-                transform.position = prevPosition;
-                moveData.origin += positionalMovement;
+            // Previous movement code
+            Vector3 positionalMovement = transform.position - prevPosition;
+            
+            transform.position = prevPosition;
+            moveData.origin += positionalMovement;
 
-                // Triggers
-                if (numberOfTriggers != triggers.Count)
+            // Triggers
+            if (numberOfTriggers != triggers.Count)
+            {
+                numberOfTriggers = triggers.Count;
+
+                underwater = false;
+                triggers.RemoveAll(item => item == null);
+                foreach (Collider trigger in triggers)
                 {
-                    numberOfTriggers = triggers.Count;
 
-                    underwater = false;
-                    triggers.RemoveAll(item => item == null);
-                    foreach (Collider trigger in triggers)
-                    {
+                    if (trigger == null)
+                        continue;
 
-                        if (trigger == null)
-                            continue;
-
-                        if (trigger.GetComponentInParent<Water>())
-                            underwater = true;
-
-                    }
+                    if (trigger.GetComponentInParent<Water>())
+                        underwater = true;
 
                 }
 
-                _moveData.cameraUnderwater = _cameraWaterCheck.IsUnderwater();
-                _cameraWaterCheckObject.transform.position = viewTransform.position;
-                moveData.underwater = underwater;
-
-                if (allowCrouch)
-                    _controller.Crouch(this, movementConfig, Time.deltaTime);
-
-                _controller.ProcessMovement(this, movementConfig, Time.deltaTime);
-
-                transform.position = moveData.origin;
-                prevPosition = transform.position;
-
-                _colliderObject.transform.rotation = Quaternion.identity;
             }
+
+            _moveData.cameraUnderwater = _cameraWaterCheck.IsUnderwater();
+            _cameraWaterCheckObject.transform.position = viewTransform.position;
+            moveData.underwater = underwater;
+
+            if (allowCrouch)
+                _controller.Crouch(this, movementConfig, Time.deltaTime);
+
+            _controller.ProcessMovement(this, movementConfig, Time.deltaTime);
+
+            transform.position = moveData.origin;
+            prevPosition = transform.position;
+
+            _colliderObject.transform.rotation = Quaternion.identity;
         }
         
         private void UpdateTestBinds () {

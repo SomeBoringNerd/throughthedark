@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Disclaimer : MonoBehaviour
 {
+
+    private bool Debug = true;
+
     // used to launch the modhook functionality
     private void Start()
     {
@@ -16,7 +19,8 @@ public class Disclaimer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameGlobal.scenetoload = "MainMenu";
+            
+            GameGlobal.scenetoload = Debug ? "SchoolScene" : "MainMenu";
             SceneManager.LoadScene("LoadingScene");
         }
     }
