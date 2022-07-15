@@ -19,16 +19,16 @@ public class waypointScript : MonoBehaviour
     {
         GameGlobal.PlayerIsNearADoor = false;
         teleportHud.text = "";
-        //image.color = new Color(0, 0, 0, 0.5f);
+
+        image.color = new Color(0, 0, 0, 0.5f);
     }
-    void OnTriggerStay(Collider other)
+    void Update()
     {
-        teleportHud.text = (other.tag != "Player") ? "" : "press E to take the stairs";
-        if(other.tag != "Player") return;
+        if(!(Vector3.Distance(player.transform.position, transform.position) <= 5)) return;
+        teleportHud.text = ((Vector3.Distance(player.transform.position, transform.position) <= 4)) ? "Press E to take the stairs" : "";
+
         if(GameGlobal.PlayerIsNearADoor) return;
         if(!Input.GetKeyDown(KeyCode.E)) return;
-        
-        
 
         StartCoroutine(Teleport());
     }
@@ -36,14 +36,14 @@ public class waypointScript : MonoBehaviour
     IEnumerator Teleport()
     {
         FindObjectOfType<SurfCharacter>().canMove = false;
-        for(float i = 128; i < 255; i++)
+        for(float i = 128; i < 255; i += 2)
         {
             image.color = new Color(0, 0, 0, i / 255);
             yield return new WaitForSeconds(0.0003921569f / 2);
         }
         player.transform.position = target.transform.position;
         player.transform.rotation = new Quaternion(0, rotation, 0, 1);
-        for(float i = 255; i > 128; i--)
+        for(float i = 255; i > 128; i -= 2)
         {
             Debug.Log(i);
             image.color = new Color(0, 0, 0, i / 255);

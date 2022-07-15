@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Disclaimer : MonoBehaviour
 {
 
-    private bool Debug = true;
+    private bool Debug = false;
 
     // used to launch the modhook functionality
     private void Start()

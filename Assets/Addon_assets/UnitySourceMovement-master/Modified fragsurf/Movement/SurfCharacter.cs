@@ -116,6 +116,8 @@ namespace Fragsurf.Movement {
 
         private void Start () {
             
+            Application.targetFrameRate = 80;
+
             _colliderObject = new GameObject ("PlayerCollider");
             _colliderObject.layer = gameObject.layer;
             _colliderObject.transform.SetParent (transform);
@@ -289,12 +291,22 @@ namespace Fragsurf.Movement {
             _moveData.verticalAxis = Input.GetAxisRaw ("Vertical");
             _moveData.horizontalAxis = Input.GetAxisRaw ("Horizontal");
 
-            _moveData.sprinting = Input.GetKeyDown(KeyCode.LeftShift);
+            
             
             if (Input.GetKey(KeyCode.LeftControl))
                 _moveData.crouching = true;
             else
                 _moveData.crouching = false;
+
+            if(Input.GetKey(KeyCode.LeftShift) && !_moveData.crouching){
+                moveConfig.walkSpeed = moveConfig.sprintSpeed;
+                cameraAnim.GetComponent<Camera>().fieldOfView = GameGlobal.FOV + 10;
+            }else{
+                moveConfig.walkSpeed = 7;
+                cameraAnim.GetComponent<Camera>().fieldOfView = GameGlobal.FOV;
+            }
+
+            
             
             bool moveLeft = _moveData.horizontalAxis < 0f;
             bool moveRight = _moveData.horizontalAxis > 0f;
