@@ -48,25 +48,24 @@ public class NoteBookScript : MonoBehaviour
         }
 #endif
 
-        if (interactable.isUsable)
+        if (!interactable.isUsable) return;
+        
+        if (Input.GetKeyDown(KeyCode.E) && !book_parent.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !book_parent.activeSelf)
-            {
-                book_parent.SetActive(true);
-                playerCamera.enabled = false;
-                playerController.enabled = false;
+            book_parent.SetActive(true);
+            playerCamera.enabled = false;
+            playerController.enabled = false;
 
-                Cursor.lockState = CursorLockMode.Confined;
-                Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = true;
 
 
-            }
+        }
 
-            if (book_parent.activeSelf)
-            {
-                int tmp = page + 1;
-                indication.text = "page " + tmp + " / " + note_pages.Length;
-            }
+        if (book_parent.activeSelf)
+        {
+            int tmp = page + 1;
+            indication.text = "page " + tmp + " / " + note_pages.Length;
         }
     }
 

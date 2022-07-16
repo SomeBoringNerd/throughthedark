@@ -36,7 +36,6 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Scripts/NoFallScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Extensions/VectorExtensions.cs" />
      <Compile Include="Assets/Scripts/commands/commandBase.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/TraceUtil/Tracer.cs" />
@@ -60,22 +59,18 @@
      <Compile Include="Assets/Scripts/Map/RaycastScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Extensions/IntExtensions.cs" />
      <Compile Include="Assets/Scripts/waypointScript.cs" />
-     <Compile Include="Assets/Scripts/Map/School/DoorScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/TraceUtil/Trace.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Movement/SurfPhysics.cs" />
-     <Compile Include="Assets/Scripts/Map/School/DoorManagerScript.cs" />
      <Compile Include="Assets/Scripts/Map/WindowsScript.cs" />
      <Compile Include="Assets/Scripts/Ambiant/RainAndThunder.cs" />
      <Compile Include="Assets/Scripts/GUI/LoadOrNewGame.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Ladder.cs" />
-     <Compile Include="Assets/Scripts/Map/School/TriggerScript.cs" />
      <Compile Include="Assets/Scripts/Teleport.cs" />
      <Compile Include="Assets/Scripts/GUI/DebugGUIScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Water.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Movement/InputButtons.cs" />
      <Compile Include="Assets/Scripts/GUI/MainMenuScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/CameraWaterCheck.cs" />
-     <Compile Include="Assets/Scripts/Player/School/DeterminePlayersPositionInSchoolScript.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />

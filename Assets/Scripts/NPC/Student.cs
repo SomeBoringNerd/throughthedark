@@ -57,73 +57,6 @@ public class Student : MonoBehaviour
 
     private void Start()
     {
-        // if i forget to add those variables, the script break.
-        // if i'm not retarded, it should work as intended, but we never know
-        if (ByeDialogue_Speaker.Length == 0)
-        {
-            ByeDialogue_Speaker = new string[]
-            {
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-            };
-        }
-        if (GreatingDialogue_Speaker.Length == 0)
-        {
-            GreatingDialogue_Speaker = new string[]
-            {
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-            };
-        }
-        if (FlirtDialogue_Speaker.Length == 0)
-        {
-            FlirtDialogue_Speaker = new string[]
-            {
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-            };
-        }
-        if (InfoDialogue_Speaker.Length == 0)
-        {
-            InfoDialogue_Speaker = new string[]
-            {
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-            };
-        }
-        if (RegularLines_Speaker.Length == 0)
-        {
-            RegularLines_Speaker = new string[]
-            {
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-                "PLACEHOLDER",
-            };
-        }
-
-        if (Student_Name == "")
-        {
-            Student_Name = "PLACEHOLDER";
-        }
         // now we do the good stuff.
         
         PressEToContinue.SetActive(false);
@@ -138,186 +71,180 @@ public class Student : MonoBehaviour
     void Update()
     {
         // logic to see if the player is looking at a npc and pressing E (will add support for custom control later)
-        if (interaction.isUsable && !parentGUI.activeSelf)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                GameGlobal.canUseMenus = false;
-                playerReference.canCameraMove = false;
-                playerMovement.canMove = false;
-                
-                parentGUI.SetActive(true);
-                
-                int rng = Random.Range(1, 2);
-                Debug.Log(rng);
-                
-                // say a random line
-                StartCoroutine(sayStuff(RegularLines[(rng == 1 ? 0 : 2)], Student_Name));
-            }
-        }
+        if (!(interaction.isUsable && !parentGUI.activeSelf)) return;
+        if (!Input.GetKeyDown(KeyCode.E)) return;
+
+        GameGlobal.canUseMenus = false;
+        playerReference.canCameraMove = false;
+        playerMovement.canMove = false;
+        
+        parentGUI.SetActive(true);
+        
+        int rng = Random.Range(1, 2);
+        Debug.Log(rng);
+        
+        // say a random line
+        StartCoroutine(sayStuff(RegularLines[(rng == 1 ? 0 : 2)], Student_Name));
     }
 
     // this code allow to display text on screen
     IEnumerator sayStuff(String text, string speaker_name)
     {
-        if (!isRoutineAlreadyRunning)
-        {
-            PressEToContinue.SetActive(false);
-            isRoutineAlreadyRunning = true;
-            speakerName.text = speaker_name;
-            char[] letters = text.ToCharArray();
-            foreach (char letter in letters)
-            {
-                yield return new WaitForSeconds(0.04f);
-                // Debug.Log(letter);
-                dialogBox.text += letter;
-            }
+        if (isRoutineAlreadyRunning) yield return null;
 
-            interactionParent.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.Confined;
-            isRoutineAlreadyRunning = false;
+        PressEToContinue.SetActive(false);
+        isRoutineAlreadyRunning = true;
+        speakerName.text = speaker_name;
+        char[] letters = text.ToCharArray();
+        foreach (char letter in letters)
+        {
+            yield return new WaitForSeconds(0.04f);
+            // Debug.Log(letter);
+            dialogBox.text += letter;
         }
+
+        interactionParent.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        isRoutineAlreadyRunning = false;
+        
     }
     
     // same thing, but for interactions
+    // i'm not sorry for that shit
     IEnumerator sayDialogue(INTERACTION_TYPE type)
     {
         //Debug.Log("routine :" + isRoutineAlreadyRunning);
-        if (!isRoutineAlreadyRunning)
-        {
-            dialogBox.text = String.Empty;
-            isRoutineAlreadyRunning = true;
-            
-            switch (type)
-            {
-                case INTERACTION_TYPE.GREATING:
-                    int i = 0;
-                    foreach (string dialog_line in GreatingDialogue)
-                    {
-                        speakerName.text = GreatingDialogue_Speaker[i];
-                        char[] letters2 = dialog_line.ToCharArray();
-                        foreach (char letter in letters2)
-                        {
-                            yield return new WaitForSeconds(0.04f);
-                            dialogBox.text += letter;
-                        }
-                        PressEToContinue.SetActive(true);
-                        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                        PressEToContinue.SetActive(false);
-                        dialogBox.text = String.Empty;
-                        i++;
-                    }
-                    break;
-                case INTERACTION_TYPE.INFORMATION:
-                    int j = 0;
-                    foreach (string dialog_line in InfoDialogue)
-                    {
-                        speakerName.text = InfoDialogue_Speaker[j];
-                        char[] letters2 = dialog_line.ToCharArray();
-                        foreach (char letter in letters2)
-                        {
-                            yield return new WaitForSeconds(0.04f);
-                            // Debug.Log(letter);
-                            dialogBox.text += letter;
-                        }
-                        PressEToContinue.SetActive(true);
-                        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                        PressEToContinue.SetActive(false);
-                        dialogBox.text = String.Empty;
-                        j++;
-                    }
-                    break;
-                case INTERACTION_TYPE.FLIRT:
-                    if (!CAN_HAVE_ROMANCE) break;
-                    
-                    int k = 0;
-                    foreach (string dialog_line in FlirtDialogue)
-                    {
-                        speakerName.text = FlirtDialogue_Speaker[k];
-                        char[] letters2 = dialog_line.ToCharArray();
-                        foreach (char letter in letters2)
-                        {
-                            yield return new WaitForSeconds(0.04f);
-                            dialogBox.text += letter;
-                        }
-                        PressEToContinue.SetActive(true);
-                        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                        PressEToContinue.SetActive(false);
-                        dialogBox.text = String.Empty;
-                        k++;
-                    }
-                    break;
-                case INTERACTION_TYPE.SAY_GOOD_BYE:
-                    int l = 0;
-                    foreach (string dialog_line in ByeDialogue)
-                    {
-                        speakerName.text = ByeDialogue_Speaker[l];
-                        char[] letters2 = dialog_line.ToCharArray();
-                        foreach (char letter in letters2)
-                        {
-                            yield return new WaitForSeconds(0.04f);
-                            dialogBox.text += letter;
-                        }
-                        PressEToContinue.SetActive(true);
-                        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                        PressEToContinue.SetActive(false);
-                        dialogBox.text = String.Empty;
-                        l++;
-                        leaveForNow = true;
-                    }
+        if (isRoutineAlreadyRunning) yield return null;
 
-                    leaveForNow = true;
-                    break;
-            }
-            if(!leaveForNow){
-                interactionParent.SetActive(true);
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.Confined;
-            }
-            else
-            {
+        dialogBox.text = String.Empty;
+        isRoutineAlreadyRunning = true;
+        
+        switch (type)
+        {
+            case INTERACTION_TYPE.GREATING:
+                int i = 0;
+                foreach (string dialog_line in GreatingDialogue)
+                {
+                    speakerName.text = GreatingDialogue_Speaker[i];
+                    char[] letters2 = dialog_line.ToCharArray();
+                    foreach (char letter in letters2)
+                    {
+                        yield return new WaitForSeconds(0.04f);
+                        dialogBox.text += letter;
+                    }
+                    PressEToContinue.SetActive(true);
+                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                    PressEToContinue.SetActive(false);
+                    dialogBox.text = String.Empty;
+                    i++;
+                }
+                break;
+            case INTERACTION_TYPE.INFORMATION:
+                int j = 0;
+                foreach (string dialog_line in InfoDialogue)
+                {
+                    speakerName.text = InfoDialogue_Speaker[j];
+                    char[] letters2 = dialog_line.ToCharArray();
+                    foreach (char letter in letters2)
+                    {
+                        yield return new WaitForSeconds(0.04f);
+                        // Debug.Log(letter);
+                        dialogBox.text += letter;
+                    }
+                    PressEToContinue.SetActive(true);
+                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                    PressEToContinue.SetActive(false);
+                    dialogBox.text = String.Empty;
+                    j++;
+                }
+                break;
+            case INTERACTION_TYPE.FLIRT:
+                if (!CAN_HAVE_ROMANCE) break;
                 
-                parentGUI.SetActive(false);
-                interactionParent.SetActive(false);
-                playerReference.canCameraMove = true;
-                playerMovement.canMove = true;
-                Cursor.visible = false;
-                Cursor.lockState = CursorLockMode.Locked;
-            }
-            // no matter the outcome, we want those two variable to be reset for the next interaction
-            leaveForNow = false;
-            isRoutineAlreadyRunning = false;
-            PressEToContinue.SetActive(false);
-            speakerName.text = Student_Name;
-            GameGlobal.canUseMenus = true;
+                int k = 0;
+                foreach (string dialog_line in FlirtDialogue)
+                {
+                    speakerName.text = FlirtDialogue_Speaker[k];
+                    char[] letters2 = dialog_line.ToCharArray();
+                    foreach (char letter in letters2)
+                    {
+                        yield return new WaitForSeconds(0.04f);
+                        dialogBox.text += letter;
+                    }
+                    PressEToContinue.SetActive(true);
+                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                    PressEToContinue.SetActive(false);
+                    dialogBox.text = String.Empty;
+                    k++;
+                }
+                break;
+            case INTERACTION_TYPE.SAY_GOOD_BYE:
+                int l = 0;
+                foreach (string dialog_line in ByeDialogue)
+                {
+                    speakerName.text = ByeDialogue_Speaker[l];
+                    char[] letters2 = dialog_line.ToCharArray();
+                    foreach (char letter in letters2)
+                    {
+                        yield return new WaitForSeconds(0.04f);
+                        dialogBox.text += letter;
+                    }
+                    PressEToContinue.SetActive(true);
+                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                    PressEToContinue.SetActive(false);
+                    dialogBox.text = String.Empty;
+                    l++;
+                    leaveForNow = true;
+                }
+
+                leaveForNow = true;
+                break;
         }
+        if(!leaveForNow){
+            interactionParent.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            
+            parentGUI.SetActive(false);
+            interactionParent.SetActive(false);
+            playerReference.canCameraMove = true;
+            playerMovement.canMove = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        // no matter the outcome, we want those two variable to be reset for the next interaction
+        leaveForNow = false;
+        isRoutineAlreadyRunning = false;
+        PressEToContinue.SetActive(false);
+        speakerName.text = Student_Name;
+        GameGlobal.canUseMenus = true;
     }
     
     // why the fuck i can't use enum in a button OnClick event ?!
     public void GreatingDialogueInit(int state)
     {
-        Debug.Log("routine :" + isRoutineAlreadyRunning);
-        if(!isRoutineAlreadyRunning){
-            interactionParent.SetActive(false);
-            //Debug.Log("launching routine");
-            switch (state)
-            {
-                case 0:
-                    StartCoroutine(sayDialogue(INTERACTION_TYPE.GREATING));
-                    break;
-                case 1:
-                    StartCoroutine(sayDialogue(INTERACTION_TYPE.INFORMATION));
-                    break;
-                case 2:
-                    StartCoroutine(sayDialogue(INTERACTION_TYPE.FLIRT));
-                    break;
-                case 3:
-                    StartCoroutine(sayDialogue(INTERACTION_TYPE.SAY_GOOD_BYE));
-                    break;
-            }
-            
-            
+        if(isRoutineAlreadyRunning) return;
+
+        interactionParent.SetActive(false);
+        
+        switch (state)
+        {
+            case 0:
+                StartCoroutine(sayDialogue(INTERACTION_TYPE.GREATING));
+                break;
+            case 1:
+                StartCoroutine(sayDialogue(INTERACTION_TYPE.INFORMATION));
+                break;
+            case 2:
+                StartCoroutine(sayDialogue(INTERACTION_TYPE.FLIRT));
+                break;
+            case 3:
+                StartCoroutine(sayDialogue(INTERACTION_TYPE.SAY_GOOD_BYE));
+                break;
         }
     }
     

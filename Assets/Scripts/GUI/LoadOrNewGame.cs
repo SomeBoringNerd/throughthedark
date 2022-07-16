@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+
+/*
+        somehow, using that class in the main menu and in game work.
+*/
 public class LoadOrNewGame : MonoBehaviour
 {
 

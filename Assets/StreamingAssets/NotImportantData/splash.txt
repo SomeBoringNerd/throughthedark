@@ -16,7 +16,7 @@ I have -2,147,483,647 problems and\nan integer overflow is one of them
 cannot GET StreamingAssets/NotImportantData/splash.txt
 sudo apt install neofetch
 "what's 2+2?"
-"I Just Mined 15 Dirt! ＮＨａｃｋｖ２"
+"I Just Mined 17 Dirt! ＮＨａｃｋｖ２"
 Dont forget to drink water and touch some grass
 zsh based shell
 Can it run doom ? someone will find a way to.
@@ -38,3 +38,7 @@ null
 Dont forget that Bungee Gum has\nthe properties of both rubber and gum.
 Honestly, I dont even know what's going on
 I need suggestions for those splash text
+Seen on odysee.com !
+"yeah, my obs settings are trash"\n-SBN every two videos
+Bloated by design
+Good code practice ? what's that ?

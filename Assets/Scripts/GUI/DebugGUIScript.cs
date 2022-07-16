@@ -18,9 +18,8 @@ public class DebugGUIScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F3))
-        {
-            DebugGUI.SetActive(!DebugGUI.activeSelf);
-        }
+        if (!Input.GetKeyDown(KeyCode.F3)) return;
+        
+        DebugGUI.SetActive(!DebugGUI.activeSelf);
     }
 }

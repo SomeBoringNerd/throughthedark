@@ -35,3 +35,8 @@ public class WindowsScript : MonoBehaviour
         }
     }
 }
+
+public enum DOOR_OPENED_STATE{
+    OPEN,
+    CLOSED
+}

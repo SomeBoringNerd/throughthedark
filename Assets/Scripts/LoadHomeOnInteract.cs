@@ -14,10 +14,9 @@ public class LoadHomeOnInteract : MonoBehaviour
 
     void Update()
     {
-        if(interaction.isUsable && Input.GetKeyDown(KeyCode.E))
-        {
-            GameGlobal.scenetoload = SceneToLoad;
-            SceneManager.LoadScene("LoadingScene");
-        }
+        if(!(interaction.isUsable && Input.GetKeyDown(KeyCode.E)))
+
+        GameGlobal.scenetoload = SceneToLoad;
+        SceneManager.LoadScene("LoadingScene");
     }
 }

@@ -17,14 +17,10 @@ public class MainMenuScript : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
-        
-        if (SceneManager.GetActiveScene().name == "MainMenu")
-        {
-            //Loader.Loader.Hook();
-        }
-        
+    {        
         Title.text = "version-" + type + "-" + version;
+
+        // this is going to be a mess later on.
         if (PlayerPrefs.GetInt("Version") != version)
         {
             if(PlayerPrefs.GetInt("Version") <= 0)
@@ -41,11 +37,11 @@ public class MainMenuScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F5) && SceneManager.GetActiveScene().name == "MainMenu") { 
-            PlayerPrefs.DeleteAll();
-            Screen.SetResolution(1280, 720, false);
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        if (!(Input.GetKeyDown(KeyCode.F5) && SceneManager.GetActiveScene().name == "MainMenu")) return;
+        
+        PlayerPrefs.DeleteAll();
+        Screen.SetResolution(1280, 720, false);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void onEnable()
