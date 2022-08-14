@@ -9,7 +9,8 @@ using Random = UnityEngine.Random;
  
         Logic behind the npcs
 
-        todo : 
+        todo : Rewrite the dialogue system because holyshit it's bad.
+		like, really really bad.
  
  */
 public class Student : MonoBehaviour
@@ -18,22 +19,6 @@ public class Student : MonoBehaviour
     public int STUDENT_ID;
 
     public string Student_Name;
-
-    [Header("Text lines")]
-    public string[] RegularLines;
-    public string[] RegularLines_Speaker;
-    public string[] GreatingDialogue;
-    public string[] GreatingDialogue_Speaker;
-    
-    [Tooltip("if student can't have romance with player, leave blank")]
-    public string[] FlirtDialogue;
-    public string[] FlirtDialogue_Speaker;
-    
-    public string[] InfoDialogue;
-    public string[] InfoDialogue_Speaker;
-    
-    public string[] ByeDialogue;
-    public string[] ByeDialogue_Speaker;
 
     [Header("GUI stuff")] 
     public GameObject parentGUI, PressEToContinue;
@@ -49,6 +34,10 @@ public class Student : MonoBehaviour
     [Header("Reference to other scripts")] 
     public InteractableScript interaction;
 
+    public TranslationManager manager;
+
+    public DialogueManager dmanager;
+
     public PlayerAiming playerReference;
     public SurfCharacter playerMovement;
     
@@ -58,6 +47,14 @@ public class Student : MonoBehaviour
     private void Start()
     {
         // now we do the good stuff.
+
+        if(manager == null){
+            manager = FindObjectOfType<TranslationManager>();
+        }
+
+        if(dmanager == null){
+            dmanager = FindObjectOfType<DialogueManager>();
+        }
         
         PressEToContinue.SetActive(false);
         
@@ -70,7 +67,8 @@ public class Student : MonoBehaviour
 
     void Update()
     {
-        // logic to see if the player is looking at a npc and pressing E (will add support for custom control later)
+        // logic to see if the player is looking at a npc and pressing E
+        // (will add support for custom control later)
         if (!(interaction.isUsable && !parentGUI.activeSelf)) return;
         if (!Input.GetKeyDown(KeyCode.E)) return;
 
@@ -80,127 +78,79 @@ public class Student : MonoBehaviour
         
         parentGUI.SetActive(true);
         
-        int rng = Random.Range(1, 2);
-        Debug.Log(rng);
-        
         // say a random line
-        StartCoroutine(sayStuff(RegularLines[(rng == 1 ? 0 : 2)], Student_Name));
+        StartCoroutine(sayStuff(manager.getString("SchoolScene.DialogueManager."+ Student_Name.Replace(" ", "")  +".NONE.1"), Student_Name));
     }
 
-    // this code allow to display text on screen
+    /// <summary>
+    /// This code display a message before showing the interaction menu
+    /// </summary>
+    /// <param name="text">Text to display</param>
+    /// <param name="speaker_name">What to display on the Name label.</param>
+    /// <returns>Nothing lol</returns>
     IEnumerator sayStuff(String text, string speaker_name)
     {
         if (isRoutineAlreadyRunning) yield return null;
 
         PressEToContinue.SetActive(false);
+
         isRoutineAlreadyRunning = true;
         speakerName.text = speaker_name;
+
         char[] letters = text.ToCharArray();
         foreach (char letter in letters)
         {
             yield return new WaitForSeconds(0.04f);
-            // Debug.Log(letter);
             dialogBox.text += letter;
         }
 
         interactionParent.SetActive(true);
+        dmanager.setStudentForButton(GetStudent());
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         isRoutineAlreadyRunning = false;
         
     }
     
-    // same thing, but for interactions
-    // i'm not sorry for that shit
-    IEnumerator sayDialogue(INTERACTION_TYPE type)
+    /// <summary>
+    /// Initialize a Dialogue loop dictated by the followings facters :
+    /// -> character name
+    /// -> type of interaction
+    /// </summary>
+    /// <param name="type">type of interaction</param>
+    /// <returns>nothing lol</returns>
+    public IEnumerator sayDialogue(INTERACTION_TYPE type)
     {
-        //Debug.Log("routine :" + isRoutineAlreadyRunning);
         if (isRoutineAlreadyRunning) yield return null;
 
         dialogBox.text = String.Empty;
         isRoutineAlreadyRunning = true;
         
-        switch (type)
+        string[] dialogue = manager.getArray("SchoolScene.DialogueManager." + Student_Name.Replace(" ", "") + "." + type.ToString().ToUpper() + ".%ID%");
+        string[] dialogue_speaker = manager.getArray("SchoolScene.DialogueManager." + Student_Name.Replace(" ", "") + "." + type.ToString().ToUpper() + ".%ID%.speaker");
+        
+        int l = 0;
+        foreach (string dialog_line in dialogue)
         {
-            case INTERACTION_TYPE.GREATING:
-                int i = 0;
-                foreach (string dialog_line in GreatingDialogue)
+            speakerName.text = dialogue_speaker[l];
+            if(dialog_line != String.Empty && dialog_line != null)
+            {
+                char[] letters2 = dialog_line.ToCharArray();
+                foreach (char letter in letters2)
                 {
-                    speakerName.text = GreatingDialogue_Speaker[i];
-                    char[] letters2 = dialog_line.ToCharArray();
-                    foreach (char letter in letters2)
-                    {
-                        yield return new WaitForSeconds(0.04f);
-                        dialogBox.text += letter;
-                    }
-                    PressEToContinue.SetActive(true);
-                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                    PressEToContinue.SetActive(false);
-                    dialogBox.text = String.Empty;
-                    i++;
+                    yield return new WaitForSeconds(0.04f);
+                    dialogBox.text += letter;
                 }
-                break;
-            case INTERACTION_TYPE.INFORMATION:
-                int j = 0;
-                foreach (string dialog_line in InfoDialogue)
-                {
-                    speakerName.text = InfoDialogue_Speaker[j];
-                    char[] letters2 = dialog_line.ToCharArray();
-                    foreach (char letter in letters2)
-                    {
-                        yield return new WaitForSeconds(0.04f);
-                        // Debug.Log(letter);
-                        dialogBox.text += letter;
-                    }
-                    PressEToContinue.SetActive(true);
-                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                    PressEToContinue.SetActive(false);
-                    dialogBox.text = String.Empty;
-                    j++;
-                }
-                break;
-            case INTERACTION_TYPE.FLIRT:
-                if (!CAN_HAVE_ROMANCE) break;
-                
-                int k = 0;
-                foreach (string dialog_line in FlirtDialogue)
-                {
-                    speakerName.text = FlirtDialogue_Speaker[k];
-                    char[] letters2 = dialog_line.ToCharArray();
-                    foreach (char letter in letters2)
-                    {
-                        yield return new WaitForSeconds(0.04f);
-                        dialogBox.text += letter;
-                    }
-                    PressEToContinue.SetActive(true);
-                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                    PressEToContinue.SetActive(false);
-                    dialogBox.text = String.Empty;
-                    k++;
-                }
-                break;
-            case INTERACTION_TYPE.SAY_GOOD_BYE:
-                int l = 0;
-                foreach (string dialog_line in ByeDialogue)
-                {
-                    speakerName.text = ByeDialogue_Speaker[l];
-                    char[] letters2 = dialog_line.ToCharArray();
-                    foreach (char letter in letters2)
-                    {
-                        yield return new WaitForSeconds(0.04f);
-                        dialogBox.text += letter;
-                    }
-                    PressEToContinue.SetActive(true);
-                    yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
-                    PressEToContinue.SetActive(false);
-                    dialogBox.text = String.Empty;
-                    l++;
-                    leaveForNow = true;
-                }
-
-                leaveForNow = true;
-                break;
+                PressEToContinue.SetActive(true);
+                yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+                PressEToContinue.SetActive(false);
+                dialogBox.text = String.Empty;
+                l++;
+            }
+            
+            leaveForNow = type == INTERACTION_TYPE.SAY_GOOD_BYE;
         }
+        
         if(!leaveForNow){
             interactionParent.SetActive(true);
             Cursor.visible = true;
@@ -223,29 +173,14 @@ public class Student : MonoBehaviour
         speakerName.text = Student_Name;
         GameGlobal.canUseMenus = true;
     }
-    
-    // why the fuck i can't use enum in a button OnClick event ?!
-    public void GreatingDialogueInit(int state)
-    {
-        if(isRoutineAlreadyRunning) return;
-
-        interactionParent.SetActive(false);
         
-        switch (state)
-        {
-            case 0:
-                StartCoroutine(sayDialogue(INTERACTION_TYPE.GREATING));
-                break;
-            case 1:
-                StartCoroutine(sayDialogue(INTERACTION_TYPE.INFORMATION));
-                break;
-            case 2:
-                StartCoroutine(sayDialogue(INTERACTION_TYPE.FLIRT));
-                break;
-            case 3:
-                StartCoroutine(sayDialogue(INTERACTION_TYPE.SAY_GOOD_BYE));
-                break;
-        }
+    /// <summary>
+    /// prettier than a simple "this" IMO
+    /// </summary>
+    /// <returns>student instance</returns>
+    public Student GetStudent()
+    {
+        return this;
     }
     
 }
