@@ -20,6 +20,8 @@ public class Student : MonoBehaviour
 
     public string Student_Name;
 
+    public bool idle;
+
     [Header("GUI stuff")] 
     public GameObject parentGUI, PressEToContinue;
     public Text dialogBox, speakerName;
@@ -91,7 +93,7 @@ public class Student : MonoBehaviour
     IEnumerator sayStuff(String text, string speaker_name)
     {
         if (isRoutineAlreadyRunning) yield return null;
-
+        dialogBox.text = String.Empty;
         PressEToContinue.SetActive(false);
 
         isRoutineAlreadyRunning = true;
@@ -104,12 +106,27 @@ public class Student : MonoBehaviour
             dialogBox.text += letter;
         }
 
-        interactionParent.SetActive(true);
-        dmanager.setStudentForButton(GetStudent());
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.Confined;
-        isRoutineAlreadyRunning = false;
-        
+        PressEToContinue.SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
+        PressEToContinue.SetActive(false);
+
+        if(idle)
+        {
+            parentGUI.SetActive(false);
+            interactionParent.SetActive(false);
+            playerReference.canCameraMove = true;
+            playerMovement.canMove = true;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            interactionParent.SetActive(true);
+            dmanager.setStudentForButton(GetStudent());
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+            isRoutineAlreadyRunning = false;
+        }
     }
     
     /// <summary>
