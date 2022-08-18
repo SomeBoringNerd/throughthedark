@@ -177,7 +177,7 @@ public class PlayerAiming : MonoBehaviour
 
     void OnGUI()
     {
-        //Display the fps and round to 2 decimals
-        GUI.Label(new Rect(5, 5, 100, 25), fps.ToString("F2") + "FPS", textStyle);
+        //Display the fps
+        GUI.Label(new Rect(5, 5, 100, 25), (int)fps + "FPS", textStyle);
     }
 }

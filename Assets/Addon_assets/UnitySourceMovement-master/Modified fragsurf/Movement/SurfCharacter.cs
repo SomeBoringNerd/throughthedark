@@ -228,8 +228,7 @@ namespace Fragsurf.Movement {
             //if
 
             //UpdateTestBinds ();
-            if(canMove)
-                UpdateMoveData();
+            UpdateMoveData();
 
             // Previous movement code
             Vector3 positionalMovement = transform.position - prevPosition;
@@ -286,7 +285,8 @@ namespace Fragsurf.Movement {
 
         }
 
-        private void UpdateMoveData () {
+        private void UpdateMoveData () 
+        {
             
             _moveData.verticalAxis = Input.GetAxisRaw ("Vertical");
             _moveData.horizontalAxis = Input.GetAxisRaw ("Horizontal");
@@ -307,41 +307,43 @@ namespace Fragsurf.Movement {
             }
 
             
-            
-            bool moveLeft = _moveData.horizontalAxis < 0f;
+            bool moveLeft =  _moveData.horizontalAxis < 0f;
             bool moveRight = _moveData.horizontalAxis > 0f;
             bool moveFwd = _moveData.verticalAxis > 0f;
             bool moveBack = _moveData.verticalAxis < 0f;
             bool jump = Input.GetButton ("Jump");
 
-            if((moveLeft || moveRight || moveFwd || moveBack) && GameGlobal.ViewBobbing)
+            if(canMove)
             {
-                cameraAnim.SetBool("isIdle", false);
-            }else{
-                cameraAnim.SetBool("isIdle", true);
+                if((moveLeft || moveRight || moveFwd || moveBack) && GameGlobal.ViewBobbing)
+                {
+                    cameraAnim.SetBool("isIdle", false);
+                }else{
+                    cameraAnim.SetBool("isIdle", true);
+                }
+
+                if (!moveLeft && !moveRight)
+                    _moveData.sideMove = 0f;
+                else if (moveLeft)
+                    _moveData.sideMove = -moveConfig.acceleration;
+                else if (moveRight)
+                    _moveData.sideMove = moveConfig.acceleration;
+
+                if (!moveFwd && !moveBack)
+                    _moveData.forwardMove = 0f;
+                else if (moveFwd)
+                    _moveData.forwardMove = moveConfig.acceleration;
+                else if (moveBack)
+                    _moveData.forwardMove = -moveConfig.acceleration;
+                
+                if (Input.GetButtonDown ("Jump"))
+                    _moveData.wishJump = true;
+
+                if (!Input.GetButton ("Jump"))
+                    _moveData.wishJump = false;
+                
+                _moveData.viewAngles = _angles;
             }
-
-            if (!moveLeft && !moveRight)
-                _moveData.sideMove = 0f;
-            else if (moveLeft)
-                _moveData.sideMove = -moveConfig.acceleration;
-            else if (moveRight)
-                _moveData.sideMove = moveConfig.acceleration;
-
-            if (!moveFwd && !moveBack)
-                _moveData.forwardMove = 0f;
-            else if (moveFwd)
-                _moveData.forwardMove = moveConfig.acceleration;
-            else if (moveBack)
-                _moveData.forwardMove = -moveConfig.acceleration;
-            
-            if (Input.GetButtonDown ("Jump"))
-                _moveData.wishJump = true;
-
-            if (!Input.GetButton ("Jump"))
-                _moveData.wishJump = false;
-            
-            _moveData.viewAngles = _angles;
 
         }
 

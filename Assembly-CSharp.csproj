@@ -71,7 +71,9 @@
      <Compile Include="Assets/Scripts/Teleport.cs" />
      <Compile Include="Assets/Scripts/GUI/DebugGUIScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Water.cs" />
+     <Compile Include="Assets/Scripts/Player/PlayerScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Movement/InputButtons.cs" />
+     <Compile Include="Assets/Scripts/Player/FootScript.cs" />
      <Compile Include="Assets/Scripts/GUI/MainMenuScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/CameraWaterCheck.cs" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />

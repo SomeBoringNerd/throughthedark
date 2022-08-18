@@ -223,5 +223,7 @@ public enum PERSONALITY
     ONEE,
     LONER,
     BULLY,
-    TEACHER
+    TEACHER,
+
+    SOCIAL,
 }
