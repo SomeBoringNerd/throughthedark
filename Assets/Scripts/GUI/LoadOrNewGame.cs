@@ -92,7 +92,7 @@ public class LoadOrNewGame : MonoBehaviour
 
         PlayerPrefs.SetInt("profile_" + profile + "was_loaded_once", 1);
 
-        SceneManager.LoadScene("MainCharacterChamberScene");
+        SceneManager.LoadScene(SUB_TYPE == SUB_TYPE.NEW ? "IntroScene" : "MainCharacterChamberScene");
     }
 
     public void SaveOptions()

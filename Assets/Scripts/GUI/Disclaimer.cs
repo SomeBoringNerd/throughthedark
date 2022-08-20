@@ -19,7 +19,7 @@ public class Disclaimer : MonoBehaviour
     {
         if (!Input.GetKeyDown(KeyCode.E)) return;
 
-        GameGlobal.scenetoload = Debug ? "SchoolScene" : "MainMenu";
-        SceneManager.LoadScene("LoadingScene");
+        //GameGlobal.scenetoload = Debug ? "SchoolScene" : "MainMenu";
+        SceneManager.LoadScene("MainMenu");
     }
 }

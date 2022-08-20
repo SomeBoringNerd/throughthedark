@@ -8,17 +8,23 @@ public class MainMenuScript : MonoBehaviour
 {
 
     public GameObject[] loadAndNewSubMenu;
-    public Text Title;
+    public Text Title, MOTD;
 
-    int version = 2;
-    string type = "prototype";
+    int version = 3;
+    string type = "pre-alpha";
 
     public GameObject warningObject, debug_menu;
     
     // Start is called before the first frame update
     void Start()
     {        
-        Title.text = "version-" + type + "-" + version;
+        string[] lines = System.IO.File.ReadAllLines(Application.streamingAssetsPath + "/NotImportantData/splash.txt");
+
+        int rng = Random.Range(0, lines.Length - 1);
+
+        MOTD.text = lines[rng];
+
+        Title.text = "version " + type + "-" + (version - 2);
 
         // this is going to be a mess later on.
         if (PlayerPrefs.GetInt("Version") != version)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class IntroScript : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class IntroScript : MonoBehaviour
     public Text dialogue_name, dialogue;
 
     public GameObject PressEToContinue;
+
+    public AudioClip[] voices;
+
+    public AudioSource ears;
 
     void Start()
     {
@@ -22,6 +27,7 @@ public class IntroScript : MonoBehaviour
 
     IEnumerator cutscene()
     {
+        bool skip = false;
         for(int i = 1; i < 8; i++)
         {
             Debug.Log(i);
@@ -34,15 +40,26 @@ public class IntroScript : MonoBehaviour
 
             foreach(char chr in dial)
             {
-                dialogue.text += chr;
-                yield return new WaitForSeconds(0.06f);
+                if(!Input.GetKey(KeyCode.F))
+                {
+                    dialogue.text += chr;
+                    ears.PlayOneShot(voices[i - 1]);
+                    yield return new WaitForSeconds(0.06f);
+                    skip = true;
+                }
+                else
+                { 
+                    dialogue.text = manager.getString("IntroScene.introscript.dialogue" + i);
+                }
             }
 
             PressEToContinue.SetActive(true);
-            
+            skip = false;
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.E));
         }
 
+        GameGlobal.scenetoload = "MainCharacterChamberScene";
+        SceneManager.LoadScene("LoadingScene");
 
         yield return null;
     }
