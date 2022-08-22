@@ -114,10 +114,9 @@ namespace Fragsurf.Movement {
 
         }
 
-        private void Start () {
+        private void Start ()
+        {
             
-            Application.targetFrameRate = 80;
-
             _colliderObject = new GameObject ("PlayerCollider");
             _colliderObject.layer = gameObject.layer;
             _colliderObject.transform.SetParent (transform);
@@ -228,8 +227,12 @@ namespace Fragsurf.Movement {
             //if
 
             //UpdateTestBinds ();
-            UpdateMoveData();
-
+            if(canMove)
+                UpdateMoveData();
+            else{
+                ResetPosition();
+                DisableInput();
+            }
             // Previous movement code
             Vector3 positionalMovement = transform.position - prevPosition;
             
@@ -281,7 +284,8 @@ namespace Fragsurf.Movement {
         private void ResetPosition () {
             
             moveData.velocity = Vector3.zero;
-            moveData.origin = _startPosition;
+            //moveData.origin = _startPosition;
+            cameraAnim.SetBool("isIdle", true);
 
         }
 
@@ -313,8 +317,6 @@ namespace Fragsurf.Movement {
             bool moveBack = _moveData.verticalAxis < 0f;
             bool jump = Input.GetButton ("Jump");
 
-            if(canMove)
-            {
                 if((moveLeft || moveRight || moveFwd || moveBack) && GameGlobal.ViewBobbing)
                 {
                     cameraAnim.SetBool("isIdle", false);
@@ -343,7 +345,6 @@ namespace Fragsurf.Movement {
                     _moveData.wishJump = false;
                 
                 _moveData.viewAngles = _angles;
-            }
 
         }
 
