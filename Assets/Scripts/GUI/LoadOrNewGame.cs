@@ -62,6 +62,7 @@ public class LoadOrNewGame : MonoBehaviour
             SENSITIVITY_TEXT.text = GameGlobal.Sensitivity.ToString();
             fullscreen.isOn = Screen.fullScreen;
             viewBobbing.isOn = GameGlobal.ViewBobbing;
+            resolution.SetValueWithoutNotify(PlayerPrefs.GetInt("resolution"));
         }
         if (Parent.activeSelf) { 
             Parent.SetActive(false);
@@ -101,8 +102,11 @@ public class LoadOrNewGame : MonoBehaviour
 
         // i declared sensitivity as a dropdown instead of a slider 💀
         GameGlobal.Sensitivity = (int)sensitivity.value;
-
+        GameGlobal.fullscreen = fullscreen.isOn;
+        
         Screen.SetResolution(screenX[resolution.value], screenY[resolution.value], fullscreen.isOn);
+        
+        PlayerPrefs.SetInt("resolution", resolution.value);
 
         Camera[] cameras = GetComponents<Camera>();
 

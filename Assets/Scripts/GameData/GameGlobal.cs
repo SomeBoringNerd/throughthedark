@@ -71,6 +71,12 @@ public class GameGlobal
         return PlayerPrefs.GetInt("profile_" + number + "was_loaded_once") == 1 ? true : false;
     }
 
+    public static bool fullscreen
+    {
+        get => PlayerPrefs.GetInt("fullscreen") == 1;
+        set => PlayerPrefs.SetInt("fullscreen", (value ? 1 : 0));
+    }
+
     public static string getPage(int number)
     {
         int profile = Profile;
@@ -95,12 +101,13 @@ public class GameGlobal
     {
 
         int fov_temp = GameGlobal.FOV;
+        
         float sens_temp = GameGlobal.Sensitivity;
         
         // remove data about the profile being loaded
         PlayerPrefs.DeleteKey("profile_" + number + "was_loaded_once");
         PlayerPrefs.DeleteKey("last_opened_page_" + Profile);
-        PlayerPrefs.DeleteKey("");
+        //PlayerPrefs.DeleteKey("");
 
         // delete every pages of the notebook
         for(int i = -1; i != 51; i++)

@@ -1,0 +1,3 @@
+>Option menu will now remember resolution settings when a scene is reloaded
+
+>Resolution and fullscreen is now changed on the first scene instead of going fullscreen
