@@ -11,10 +11,10 @@ public class LoadHomeOnInteract : MonoBehaviour
     
     public InteractableScript interaction;
     public string SceneToLoad;
-
+    
     void Update()
     {
-        if(!(interaction.isUsable && Input.GetKeyDown(KeyCode.E)))
+        if(!(interaction.isUsable && Input.GetKeyDown(KeyCode.E))) return;
 
         GameGlobal.scenetoload = SceneToLoad;
         SceneManager.LoadScene("LoadingScene");

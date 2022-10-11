@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,6 +31,7 @@ public class Disclaimer : MonoBehaviour
     {
         Screen.SetResolution(screenX[PlayerPrefs.GetInt("resolution", 2)], screenY[PlayerPrefs.GetInt("resolution", 2)], GameGlobal.fullscreen);
         Loader.Loader.Hook();
+        
     }
 
     void Update()
@@ -38,5 +40,6 @@ public class Disclaimer : MonoBehaviour
 
         //GameGlobal.scenetoload = Debug ? "SchoolScene" : "MainMenu";
         SceneManager.LoadScene("MainMenu");
+        
     }
 }

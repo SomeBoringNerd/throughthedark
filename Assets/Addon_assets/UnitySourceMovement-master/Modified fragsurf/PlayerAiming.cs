@@ -56,7 +56,12 @@ public class PlayerAiming : MonoBehaviour
 
         textStyle.fontStyle = FontStyle.Bold;
         textStyle.normal.textColor = Color.white;
-
+		
+        if (GameGlobal.Sensitivity == 0)
+        {
+	        GameGlobal.Sensitivity = 100;
+        }
+        
         sensitivityMultiplier = GameGlobal.Sensitivity / 100;
 		// Lock the mouse
 		Cursor.lockState = CursorLockMode.Locked;
@@ -67,6 +72,9 @@ public class PlayerAiming : MonoBehaviour
 		if(GameGlobal.FOV < 60 || GameGlobal.FOV > 120){
 			GameGlobal.FOV = 90;
 		}
+
+		
+		
         player_cam.fieldOfView = GameGlobal.FOV;
 	}
 

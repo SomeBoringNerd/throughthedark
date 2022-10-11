@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.Utils.Editor", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boxophobic.SkyboxCubemapExtended.Editor", "Boxophobic.SkyboxCubemapExtended.Editor.csproj", "{b2e734df-8222-a21b-b689-3174eefcceac}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{8cea0dae-64f4-cee0-87e1-14c1edf4284e}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +24,8 @@ Global
 		{17e65298-4a9c-c508-cebe-eb95cff94c4f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b2e734df-8222-a21b-b689-3174eefcceac}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b2e734df-8222-a21b-b689-3174eefcceac}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8cea0dae-64f4-cee0-87e1-14c1edf4284e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8cea0dae-64f4-cee0-87e1-14c1edf4284e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
