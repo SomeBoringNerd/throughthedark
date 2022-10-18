@@ -174,4 +174,5 @@ SchoolScene.DialogueManager.GiyomuHodoshima.SAY_GOOD_BYE.2.speaker = Giyomu
 # One-line characters
 # they are minor characters.
 
-SchoolScene.DialogueManager.RandomStudent.NONE.1 = Wanna sex ?
+# SchoolScene.DialogueManager.RandomStudent.NONE.1 = Wanna sex ?
+SchoolScene.DialogueManager.RandomStudent.NONE.1 = Sup gal !

@@ -224,6 +224,5 @@ public enum PERSONALITY
     LONER,
     BULLY,
     TEACHER,
-
     SOCIAL,
 }
