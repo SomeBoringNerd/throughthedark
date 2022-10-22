@@ -31,6 +31,8 @@ public class Student : MonoBehaviour
     public PERSONALITY PERSONALITY;
     public bool CAN_HAVE_ROMANCE, isRoutineAlreadyRunning, leaveForNow;
     public GameObject interactionParent;
+
+    public float maxRotation, minRotation;
     
 
     [Header("Reference to other scripts")] 
@@ -69,10 +71,15 @@ public class Student : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(playerReference.transform.rotation.y);
         // logic to see if the player is looking at a npc and pressing E
         // (will add support for custom control later)
+        if(playerReference.transform.rotation.y <= maxRotation && playerReference.transform.rotation.y >= minRotation) return;
         if (!(interaction.isUsable && !parentGUI.activeSelf)) return;
         if (!Input.GetKeyDown(KeyCode.E)) return;
+        
+        // made to avoid player talking to NPC behind walls
+        
 
         GameGlobal.canUseMenus = false;
         playerReference.canCameraMove = false;

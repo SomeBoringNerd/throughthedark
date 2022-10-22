@@ -13,6 +13,35 @@ public class RaycastScript : MonoBehaviour
         target = null;
     }
 
+    // new raycast system
+
+    void FixedUpdate()
+    {
+        Ray ray = new Ray(transform.position, transform.TransformDirection(Vector3.forward * 3));
+
+        Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward * 3), Color.yellow);
+
+        if(Physics.Raycast(ray, out RaycastHit hit, 3))
+        {
+            if(hit.collider.tag == "Env") return;
+            
+            if(hit.collider.GetComponent<InteractableScript>() != null)
+            {
+                target = hit.collider.GetComponent<InteractableScript>();
+                target.isUsable = true;
+                
+                target.UI_PARENT.SetActive(true);
+            }else if (target != null){
+                target.isUsable = false;
+                target.UI_PARENT.SetActive(false);
+                target = null;
+            }
+        }
+    }
+    /*
+
+    old code for the raycast system
+
     public void OnTriggerStay(Collider entity)
     {
         if(target == null) { 
@@ -36,5 +65,5 @@ public class RaycastScript : MonoBehaviour
                 target = null;
             }
         }
-    }
+    }*/
 }
