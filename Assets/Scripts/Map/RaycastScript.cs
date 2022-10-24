@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEngine;
 /*
         dont fucking touch that, last time i tried, i broke everything and had to revert the changes
@@ -24,7 +24,7 @@ public class RaycastScript : MonoBehaviour
         if(Physics.Raycast(ray, out RaycastHit hit, 3))
         {
             if(hit.collider.tag == "Env") return;
-            
+
             if(hit.collider.GetComponent<InteractableScript>() != null)
             {
                 target = hit.collider.GetComponent<InteractableScript>();
@@ -38,8 +38,8 @@ public class RaycastScript : MonoBehaviour
             }
         }
     }
+    
     /*
-
     old code for the raycast system
 
     public void OnTriggerStay(Collider entity)
@@ -65,5 +65,6 @@ public class RaycastScript : MonoBehaviour
                 target = null;
             }
         }
-    }*/
+    }
+    */
 }

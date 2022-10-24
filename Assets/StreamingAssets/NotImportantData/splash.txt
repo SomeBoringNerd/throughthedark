@@ -1,9 +1,6 @@
 Debug.Log("Hello World");
 npm i express.js
 Made With Unity
-discord.gg/feur
-Insurection V2 On Top Stay mad
-Stay alive out there
 Made without DRMs
 Wait, what's in the fog ? welp, it disapeared
 RIP 4b4f.org
@@ -14,11 +11,11 @@ Welcome to the internet! Have a look around!
 I have -2,147,483,647 problems and an integer overflow is one of them
 120€
 cannot GET StreamingAssets/NotImportantData/splash.txt
-sudo apt install neofetch
+sudo pacman -S neofetch
 "what's 2+2?"
 "I Just Mined 17 Dirt! ＮＨａｃｋｖ２"
 Dont forget to drink water and touch some grass
-zsh based shell
+fish based shell
 Can it run doom ? someone will find a way to.
 Can it play BadApple ? someone will find a way to.
 Not lootbox inside
@@ -42,4 +39,5 @@ Seen on odysee.com !
 "yeah, my obs settings are trash" -SBN every two videos
 Bloated by design
 Good code practice ? what's that ?
-2b2fr.xyz, 1.19.2 NoChatReport, real anarchy
+"Holy shit it worked first time ?" - SBN implementing raycast
+"Yeah, i got that idea from an Uncle Dane video"

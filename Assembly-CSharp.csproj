@@ -68,10 +68,12 @@
      <Compile Include="Assets/Scripts/Map/WindowsScript.cs" />
      <Compile Include="Assets/Scripts/Ambiant/RainAndThunder.cs" />
      <Compile Include="Assets/Addon_assets/SSMS-master/SSMS.cs" />
+     <Compile Include="Assets/Scripts/Map/city/City_ChillZone_Sofa.cs" />
      <Compile Include="Assets/Scripts/GUI/LoadOrNewGame.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Ladder.cs" />
      <Compile Include="Assets/Scripts/Teleport.cs" />
      <Compile Include="Assets/Scripts/GUI/DebugGUIScript.cs" />
+     <Compile Include="Assets/Scripts/Map/city/City_ChillZone_InteractPanel.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Water.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerScript.cs" />
      <Compile Include="Assets/Addon_assets/UnitySourceMovement-master/Modified fragsurf/Movement/InputButtons.cs" />
