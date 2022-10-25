@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
  
         Logic behind the npcs
 
-        todo : Rewrite the dialogue system because holyshit it's bad.
+        DONE : Rewrite the dialogue system because holyshit it's bad.
 		like, really really bad.
  
  */

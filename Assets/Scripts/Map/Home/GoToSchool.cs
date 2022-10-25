@@ -34,11 +34,17 @@ public class GoToSchool : MonoBehaviour
 
         if (GUI_GET_OUT.activeSelf)
         {
+            /*
+
+            what the fuck is that 
+
+            it reload the scene and serve no purpose
+
             if (Input.GetKeyDown(KeyCode.E))
             {
                 SceneManager.LoadScene("LoadingScene");
             }
-
+            */
             if (Input.GetKeyDown(KeyCode.Q))
             {
                 GUI_GET_OUT.SetActive(false);
