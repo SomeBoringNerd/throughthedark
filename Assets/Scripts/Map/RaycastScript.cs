@@ -21,6 +21,14 @@ public class RaycastScript : MonoBehaviour
 
         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward * 3), Color.yellow);
 
+        if(target != null){
+            if(Vector3.Distance(transform.position, target.transform.position) <= 4){
+                target.isUsable = false;
+                target.UI_PARENT.SetActive(false);
+                target = null;
+            }
+        }
+
         if(Physics.Raycast(ray, out RaycastHit hit, 3))
         {
             if(hit.collider.tag == "Env") return;
