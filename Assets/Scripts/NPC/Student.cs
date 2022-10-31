@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Fragsurf.Movement;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using Random = UnityEngine.Random;
  /*
  
@@ -24,7 +25,9 @@ public class Student : MonoBehaviour
 
     [Header("GUI stuff")] 
     public GameObject parentGUI, PressEToContinue;
-    public Text dialogBox, speakerName;
+    public Text dialogBox;
+
+    public TextMeshProUGUI nameText;
     
     [Header("Other variables")]
     public GENDER GENDER;
@@ -44,12 +47,18 @@ public class Student : MonoBehaviour
 
     public PlayerAiming playerReference;
     public SurfCharacter playerMovement;
+
+    public AudioClip[] sounds;
+
+    public AudioSource source;
     
     [Multiline]
     public string Description;
 
     private void Start()
     {
+
+        
         // now we do the good stuff.
 
         if(manager == null){
@@ -59,7 +68,12 @@ public class Student : MonoBehaviour
         if(dmanager == null){
             dmanager = FindObjectOfType<DialogueManager>();
         }
-        
+
+        if(source == null){
+            source = gameObject.AddComponent<AudioSource>();
+
+            source.volume = 0.5f;
+        }
         PressEToContinue.SetActive(false);
         
         leaveForNow = false;
@@ -71,7 +85,14 @@ public class Student : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(playerReference.transform.rotation.y);
+        if(playerReference == null){
+            playerReference = FindObjectOfType<PlayerScript>().playerCam;
+        }
+
+        if(playerMovement == null){
+            playerMovement = FindObjectOfType<PlayerScript>().playerBody;
+        }
+        
         // logic to see if the player is looking at a npc and pressing E
         // (will add support for custom control later)
         if(playerReference.transform.rotation.y <= maxRotation && playerReference.transform.rotation.y >= minRotation) return;
@@ -104,13 +125,19 @@ public class Student : MonoBehaviour
         PressEToContinue.SetActive(false);
 
         isRoutineAlreadyRunning = true;
-        speakerName.text = speaker_name;
+        nameText.text = speaker_name;
 
         char[] letters = text.ToCharArray();
         foreach (char letter in letters)
         {
             yield return new WaitForSeconds(0.04f);
             dialogBox.text += letter;
+
+            if(speaker_name == this.Student_Name){
+                source.PlayOneShot(sounds[0]);
+            }else{
+                source.PlayOneShot(sounds[1]);
+            }
         }
 
         PressEToContinue.SetActive(true);
@@ -156,7 +183,7 @@ public class Student : MonoBehaviour
         int l = 0;
         foreach (string dialog_line in dialogue)
         {
-            speakerName.text = dialogue_speaker[l];
+            nameText.text = dialogue_speaker[l];
             if(dialog_line != String.Empty && dialog_line != null)
             {
                 char[] letters2 = dialog_line.ToCharArray();
@@ -164,6 +191,12 @@ public class Student : MonoBehaviour
                 {
                     yield return new WaitForSeconds(0.04f);
                     dialogBox.text += letter;
+
+                    if(nameText.text == this.Student_Name){
+                        source.PlayOneShot(sounds[0]);
+                    }else{
+                        source.PlayOneShot(sounds[1]);
+                    }
                 }
                 PressEToContinue.SetActive(true);
                 yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E));
@@ -194,7 +227,7 @@ public class Student : MonoBehaviour
         leaveForNow = false;
         isRoutineAlreadyRunning = false;
         PressEToContinue.SetActive(false);
-        speakerName.text = Student_Name;
+        nameText.text = Student_Name;
         GameGlobal.canUseMenus = true;
     }
         

@@ -143,9 +143,9 @@ SchoolScene.DialogueManager.GiyomuHodoshima.NONE.1 = Fancy seeing you here, Dian
 
 SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.1 = Hello Sir, how are you ?
 SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.1.speaker = Diana
-SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.2 = I'm doing good, what about you ?
+SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.2 = I'm doing good, watching over the study room, what about you ?
 SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.2.speaker = Giyomu
-SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.3 = I'm fine too, thank you.
+SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.3 = I'm fine, thank you.
 SchoolScene.DialogueManager.GiyomuHodoshima.GREATING.3.speaker = Diana
 
 # Giyomu don't have flirt lines, but if somehow the player could flirt with him, there's some lines implemented to avoid crashing / issue of any kind
@@ -171,8 +171,37 @@ SchoolScene.DialogueManager.GiyomuHodoshima.SAY_GOOD_BYE.1.speaker = Diana
 SchoolScene.DialogueManager.GiyomuHodoshima.SAY_GOOD_BYE.2 = Take care and study, Diana!
 SchoolScene.DialogueManager.GiyomuHodoshima.SAY_GOOD_BYE.2.speaker = Giyomu
 
+## EMMA
+SchoolScene.DialogueManager.Emma.NONE.1 = Sup girl!
+
+SchoolScene.DialogueManager.Emma.GREATING.1 = Hey, how are you ?
+SchoolScene.DialogueManager.Emma.GREATING.1.speaker = Diana
+SchoolScene.DialogueManager.Emma.GREATING.2 = I'm good girl, chilling in the computer room, how 'bout you ?
+SchoolScene.DialogueManager.Emma.GREATING.2.speaker = Emma
+SchoolScene.DialogueManager.Emma.GREATING.3 = I'm fine, thank you.
+SchoolScene.DialogueManager.Emma.GREATING.3.speaker = Diana
+
+SchoolScene.DialogueManager.Emma.FLIRT.1 = Hey girl did u lose a timestamp coz i am pretty sure its DateTime.now();
+SchoolScene.DialogueManager.Emma.FLIRT.1.speaker = Diana
+SchoolScene.DialogueManager.Emma.FLIRT.2 = Bahahah, that's a good one !
+SchoolScene.DialogueManager.Emma.FLIRT.2.speaker = Emma
+
+SchoolScene.DialogueManager.Emma.INFORMATION.1  = Do you have any information about the recent events that happened here ?
+SchoolScene.DialogueManager.Emma.INFORMATION.1.speaker = Diana
+SchoolScene.DialogueManager.Emma.INFORMATION.2 = I saw some stuff about it on ReadIt, but there's not a lot of infos.
+SchoolScene.DialogueManager.Emma.INFORMATION.2.speaker = Emma
+SchoolScene.DialogueManager.Emma.INFORMATION.3 = Would you, by any chance, be able to find some stuff and tell me ?
+SchoolScene.DialogueManager.Emma.INFORMATION.3.speaker = Diana
+SchoolScene.DialogueManager.Emma.INFORMATION.4 = Yeah sure, from now on, I can scan the internet to find stuff, and I'll let you know by message.
+SchoolScene.DialogueManager.Emma.INFORMATION.4.speaker = Emma
+
+
+SchoolScene.DialogueManager.Emma.SAY_GOOD_BYE.1 = I'm not going to bother you any longer, have a good day !
+SchoolScene.DialogueManager.Emma.SAY_GOOD_BYE.1.speaker = Diana
+SchoolScene.DialogueManager.Emma.SAY_GOOD_BYE.2 = You weren't bothering me, but thanks, you too girl!
+SchoolScene.DialogueManager.Emma.SAY_GOOD_BYE.2.speaker = Emma
+
 # One-line characters
 # they are minor characters.
 
-# SchoolScene.DialogueManager.RandomStudent.NONE.1 = Wanna sex ?
-SchoolScene.DialogueManager.RandomStudent.NONE.1 = Sup gal !
+SchoolScene.DialogueManager.RandomStudent.NONE.1 = I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive I'm alive 

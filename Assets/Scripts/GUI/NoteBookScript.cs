@@ -40,14 +40,6 @@ public class NoteBookScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //kill switch because Unity is fucking dumb 
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.F5))
-        {
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-#endif
-
         if (!interactable.isUsable) return;
         
         if (Input.GetKeyDown(KeyCode.E) && !book_parent.activeSelf)

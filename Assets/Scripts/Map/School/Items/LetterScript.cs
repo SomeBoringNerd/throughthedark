@@ -1,9 +1,11 @@
 using System;
 using UnityEngine;
 
+[Obsolete]
 public class LetterScript : MonoBehaviour
 {
-    public string e = "cut content. Find how it can be used and ping me in DMs for a free headpat and maybe a hacker role";
+    
+    public string aaaaa_hint = "Content that was i never implemented. DM me if you can find out why it was made!";
     public GameObject letter;
     public InteractableScript interaction;
     

@@ -22,15 +22,27 @@ public class GoToSchool : MonoBehaviour
 
     public PlayerAiming playerCamera;
 
+    public RawImage image;
+
     void Start()
     {
-        text.text = string.Empty;
+        //text.text = string.Empty;
         GUI_GET_OUT.SetActive(false);
+        Close();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(playerCamera == null || playerMovement == null){
+            playerCamera = FindObjectOfType<PlayerScript>().playerCam;
+            playerMovement = FindObjectOfType<PlayerScript>().playerBody;
+        }
+
+        if(image == null){
+            image = FindObjectOfType<PlayerScript>().transitionScreen;
+            image.gameObject.SetActive(false);
+        }
 
         if (GUI_GET_OUT.activeSelf)
         {
@@ -73,7 +85,32 @@ public class GoToSchool : MonoBehaviour
     }
 
     public void LoadNewScene(string scene){
+        StartCoroutine(Teleport(scene));
+    }
+
+    IEnumerator Teleport(string scene)
+    {
+        FindObjectOfType<SurfCharacter>().canMove = false;
+        image.gameObject.SetActive(true);
+        for(float i = 0; i < 255; i += 4)
+        {
+            image.color = new Color(0, 0, 0, i / 255);
+            yield return new WaitForSeconds(0.0003921569f / 2);
+        }
+
+        image.color = new Color(0, 0, 0, 255);
+
         GameGlobal.scenetoload = scene;
         SceneManager.LoadScene("LoadingScene");
+        yield return null;
+    }
+
+    public void Close()
+    {
+        GUI_GET_OUT.SetActive(false);
+        playerMovement.canMove = true;
+        playerCamera.canCameraMove = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

@@ -18,27 +18,24 @@ public class MainMenuScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        string[] lines = System.IO.File.ReadAllLines(Application.streamingAssetsPath + "/NotImportantData/splash.txt");
+        if(SceneManager.GetActiveScene().name == "MainMenu"){
+            string[] lines = System.IO.File.ReadAllLines(Application.streamingAssetsPath + "/NotImportantData/splash.txt");
 
-        int rng = Random.Range(0, lines.Length - 1);
+            int rng = Random.Range(0, lines.Length - 1);
 
-        MOTD.text = lines[rng];
+            MOTD.text = lines[rng];
 
+            // this is going to be a mess later on.
+            if (PlayerPrefs.GetInt("Version") <= version)
+            {
+                PlayerPrefs.DeleteAll();
+            }
+        }else{
+            MOTD.gameObject.SetActive(false);
+        }
         Title.text = "version " + type + "-" + (version - 2);
 
-        // this is going to be a mess later on.
-        if (PlayerPrefs.GetInt("Version") != version)
-        {
-            if(PlayerPrefs.GetInt("Version") <= 0)
-            {
-                GameGlobal.ViewBobbing = true;
-            }
-            if(PlayerPrefs.GetInt("Version") <= 2)
-            {
-                GameGlobal.Sensitivity = 100;
-            }
-            PlayerPrefs.SetInt("Version", version);
-        }
+        
     }
 
     void Update()

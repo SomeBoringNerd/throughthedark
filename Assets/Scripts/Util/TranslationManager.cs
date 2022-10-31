@@ -53,7 +53,7 @@ public class TranslationManager : MonoBehaviour
     public string[] getArray(string key)
     {
         List<string> tmp = new List<string>();
-
+        string og_key = key;
         key = key.Replace("%ID%", "");
         int i = 1;
         foreach(KeyValuePair<string, string> entry in strings)
@@ -71,8 +71,6 @@ public class TranslationManager : MonoBehaviour
             {
                 tmp.Add(entry.Value);
                 i++;
-            }else{
-
             }
         }
         if(i != 0)

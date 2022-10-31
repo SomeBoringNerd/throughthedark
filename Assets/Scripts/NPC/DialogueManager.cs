@@ -3,8 +3,18 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour 
 {
-    public Button Flirt, Bye, Info, Small_Talk;
+    public Button Flirt;
+
+
+
     Student student;
+
+
+    public void Start()
+    {
+
+    }
+
     /// <summary>
     /// Finally, I dont need an entire panel per NPC
     /// </summary>

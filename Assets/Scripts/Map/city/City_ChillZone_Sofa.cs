@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Fragsurf.Movement;
 
 // @TODO : make a special camera that follow the player cursor with delay, but allow for cursor to show up
 // @TODO : Make so ordering stuff cost money to the player
@@ -15,11 +15,34 @@ public class City_ChillZone_Sofa : MonoBehaviour
 
     public GameObject player, cam, interactPanel;
 
+    public PlayerAiming aim;
+
+    public SurfCharacter Char;
+    bool PlayerInteract;
+
     // Start is called before the first frame update
     void Start()
     {
+
+        PlayerInteract = false;
+
         if(interactable == null) {
             interactable = GetComponent<InteractableScript>();
+        }
+
+        if(player == null)
+        {
+            player = FindObjectOfType<SummonPlayer>().playerInstance;
+        }
+
+        if(aim == null)
+        {
+            aim = FindObjectOfType<PlayerAiming>();
+        }
+
+        if(Char == null)
+        {
+            Char = FindObjectOfType<SurfCharacter>();
         }
 
 
@@ -49,9 +72,22 @@ public class City_ChillZone_Sofa : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!(interactable.isUsable && Input.GetKeyDown(KeyCode.E))) return;
+        if(interactable.isUsable && PlayerInteract && Input.GetKeyDown(KeyCode.E)){
+            player.SetActive(false);
+            cam.SetActive(true);
+            PlayerInteract = false;
 
-        player.SetActive(false);
-        cam.SetActive(true);
+            aim.canCameraMove = false;
+            Char.canMove = false;
+        }
+
+        else if(!PlayerInteract && Input.GetKeyDown(KeyCode.Q)){
+            player.SetActive(true);
+            cam.SetActive(false);
+            PlayerInteract = true;
+
+            aim.canCameraMove = true;
+            Char.canMove = true;
+        }
     }
 }

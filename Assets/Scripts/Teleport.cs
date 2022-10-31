@@ -77,7 +77,7 @@ public class Teleport : MonoBehaviour
         else
         {
             // toggle on the debug menu
-            if (Input.GetKeyDown(KeyCode.Asterisk))
+            if (Input.GetKeyDown(KeyCode.RightAlt))
             {
                 debug_menu.SetActive(true);
             }
