@@ -1,16 +1,7 @@
 # welcome to the github of the game Through The Dark
 
-## join the discord : 
-https://discord.gg/gtfJY7uKCN
-
-## download the game :
-https://someboringnerd.itch.io/through-the-dark
-
-## technical changes about the most recent build :
-https://github.com/SomeBoringNerd/throughthedark/releases/latest
-
-## About the game : 
-Through the Dark is a game where you play as Diana, a 21 year old girl who lives in a town where people have mysteriously disappeared. The local law enforcement refuses to take those case, so the young woman will take matters into her own hands and bring the light upon those disappearances.
+#  THAT PROJECT IS NOT THE CURRENT GAME, IT'S THE OLD ONE. THIS ONE HAVE BEEN ABANDONNED AND WONT RECEIVE ANY UPDATE.
+#  YOU CAN DO WHATEVER YOU WANT WITH THAT PROJECT, I DO NOT CARE.
 
 # DON'T BE A DICK PUBLIC LICENSE
 
